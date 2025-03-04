@@ -71,7 +71,7 @@
 - [ ] handle all aspecs using Docker containers
 ## DataBase Part
 ### users Data
-- [ ] User ID
+- [X] User ID
 - [ ] Username
 - [ ] Email
 - [ ] Hashed Password
