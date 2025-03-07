@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  background-color: #000;
+  font-family: 'Open Sans', sans-serif;
+  cursor:none;
+  overflow:hidden;
+}
+
+#block-screen{
+  position:absolute; 
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#444466;
+  opacity:0.5;
+  z-index:99;
+}
+#block-screen > span,#gameover{
+  position:absolute;
+  top:50%;
+  color:white;
+  font-size:5em;
+  display:block;
+  width:100%;
+  text-align:center;
+  transform:translate(0%,-50%);
+}
+
+#gameover span{
+  display:block;
+  width:100%;
+}
+#gameover a{
+  font-size:0.5em;
+  text-decoration:none;
+  color:#EEE;
+  border-bottom:5px solid transparent;
+}
+#gameover a:hover{
+  color:white;
+  transition-duration:0.3s;
+  border-color:white;
+}
+
+#racket{
+  /wadth:200px;
+  /haight:200px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotateX(1deg) rotateY(1deg);
+}
+
+#raquette {
+  position: absolute;
+  left: 40%;
+  overflow: auto;
+  width: 200px;
+  transform: translate(-50%, -50%);
+}
+
+#circle{
+  width:200px;
+  height:200px;
+  width:100%;
+  height:100%;
+  background:#CA625E;
+  background:#E06861;
+  background:#333;
+  border-radius:50%;
+  z-index:900;
+  box-shadow: 0 0px 2px rgba(0,0,0,0.5);
+}
+
+.counters{
+  position:Absolute;
+  top:0;
+  left:0;
+  padding:20px;
+  z-index:8;
+}
+
+.counter{
+  font-size:1.5em;
+}
+
+.counter span{
+  font-weight:bold;
+}
+
+#ball {
+  /*
+  width: 40px;
+  height: 40px;*/
+  opacity:1;
+  padding: 30px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+50,f9f9f9+50 */
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(left,  #ffffff 0%, #ffffff 50%, #f9f9f9 50%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  #ffffff 0%,#ffffff 50%,#f9f9f9 50%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  #ffffff 0%,#ffffff 50%,#f9f9f9 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f9f9f9',GradientType=1 ); /* IE6-9 */
+
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  z-index: 9;
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.3);
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  transition-duration:1s;
+  transition-timing-function:ease-in-out;
+  transform: translate(-50%, -50%);
+  animation-timing-function:cubic-bezier(0, 1.21, 0.64, 1.82);
+}
+
+body #container .deadBall{
+  transition-duration:1s;
+  opacity:0;
+}
+
+@keyframes bounce {
+  0% {
+    padding: 30px;
+    box-shadow: -10px 0px 0px 0px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    padding: 60px;
+    box-shadow: 5px 15px 0px 0px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    padding: 30px;
+    box-shadow: 1px 4px 0px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+#bott{
+  background:Red;
+  bottom:27px;
+  position:absolute;
+  width:100%;
+  z-index:2;
+}
+#support {
+  width: 110px;
+  height: 25px;
+  background: linear-gradient(to right,  #D1DECC 0%,#D1DECC 50%,#BECABA 50%);
+  top: 0;
+  left: 50%;
+  transform:translate(-50%,0);
+  position: absolute;
+  z-index: 3;
+  border-radius: 0px 0px 100% 100%;
+}
+
+
+
+#manche_support {
+  border-bottom: 90px solid #BECABA;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  height: 0;
+  width: 36px;
+
+  position: absolute;
+  z-index: 4;
+    top: 0;
+  left: 50%;
+  transform:translate(-50%,0);
+}
+
+
+
+#manche_support:before {
+  content: "";
+  border-bottom: 90px solid #D1DECC;
+  border-left: 6px solid transparent;
+  height: 0;
+  width: 18px;
+  top: 0px;
+  position: absolute;
+  z-index: 10;
+  left: -6px;
+  
+}
+
+#manche {
+  border-bottom: 80px solid #28474D;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  height: 0;
+  width: 28px;
+  position: absolute;
+  z-index: 99;
+  top: 20px;
+  left: 50%;
+  transform:translate(-50%,0);
+}
+
+#manche:before {
+  content: "";
+  border-bottom: 80px solid #32555C;
+  border-left: 6px solid transparent;
+  height: 0;
+  width: 14px;
+  top: 0px;
+  position: absolute;
+  z-index: 10;
+  left: -6px;
+}
+
+#manche_design {
+  border-bottom: 27px solid #ACB8AA;
+  border-left: 4px solid rgba(232, 22, 22, 0);
+  border-right: 4px solid transparent;
+  height: 0;
+  width: 45px;
+  position: absolute;
+  z-index: 3;
+  top: 78px;
+  left: 50%;
+  transform:translate(-50%,0);
+}
+
+#cache_manche {
+  width: 55px;
+  height: 26px;
+  background: #F4F1E8;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  z-index: 20;
+  position: absolute;
+  top: 217px;
+  left: 58px;
+  transform: rotate(210deg);
+}
+
+#cache_manche_2 {
+  width: 55px;
+  height: 26px;
+  background: #F4F1E8;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  z-index: 20;
+  position: absolute;
+  top: 217px;
+  left: 147px;
+  transform: rotate(150deg);
+}
+
+#dribbble {
+  color: #EC4E8B;
+}
+
+#hetic {
+  color: #6FB400;
+}
+
+p {
+  position: absolute;
+  top: 336px;
+  left: 594px;
+}
+
+.footer {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	margin-top: auto;
+	bottom: 0;
+
+  width: 100% !important;
+}
+
+#footer a {
+	position: static;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	margin-top: auto;
+	color: #fff !important;
+	padding: 10px;
+	text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+<div id="container">
+  <div id="block-screen">
+    <span id="countdown">3</span>
+    <div id="gameover">
+      <span>Game Over</span>
+      <span><a href="#" onclick="start();">Play again?</a></span>
+    </div>
+  </div>
+  <div id="counters">
+    <div class="counter">
+        Hits: <span id="hitsCounter">0</span>
+    </div>
+    <div class="counter">
+      HighScore: <span id="highScore">0</span>
+    </div>
+    
+  </div>
+  <div id="ball"></div>
+  <div id="racket">
+    <div id="circle"></div>
+    <div id="bott">
+    <div id="support"></div>
+    <div id="support-ombre"></div>
+    <div id="hetic"></div>
+    <div id="manche"></div>
+    <div id="manche_support"></div>
+    <div id="manche_design"></div>
+    </div>
+  </div>
+</div>
+
+<div id="footer" class="footer"></div>
+
+<script>
+  // Load the footer from the external HTML file
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('footer').innerHTML = data)
+    .catch(error => console.error('Error loading the footer:', error));
+</script>
+
+<script>
+    function createCookie(name,value,days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        var expires = "; expires=" + date.toUTCString();
+    }
+    else var expires = "";
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    createCookie(name,"",-1);
+}
+
+
+var racket = document.getElementById('racket');
+var ball = document.getElementById('ball');
+var container = document.getElementById('container');
+var circle = document.getElementById('circle');
+var hitsCounter = document.getElementById('hitsCounter');
+var highScoreElem = document.getElementById('highScore');
+var body = document.getElementsByTagName("body")[0];
+
+var racketVelocity = {
+  x: 0,
+  y: 0
+}
+
+var disableFollow = false;
+
+var hits = 0;
+var highScore = 0;
+
+var jumpTime = 1000;
+var minJumpTime = 500;
+var jumpBugFix = 0.65;
+
+var dropping = false;
+
+var baseFactor = 3;
+var movementFactor;
+var factorIncrease = 0.2;
+factorIncrease = 0;
+var maxFactor = 6;
+var maxX = window.innerWidth;
+var maxY = window.innerHeight;
+
+
+var randomVariation = 30;
+var bounceLoop;
+var angleLoop;
+
+function showCursor(){
+  body.style.cursor = "auto";
+}
+function hideCursor(){
+  body.style.cursor = "none";
+}
+var ballInfo = {
+  radius:20,
+  x: function() {
+    return ball.offsetLeft;
+  },
+  y: function() {
+    return ball.offsetTop;
+  }
+}
+var racketInfo = {
+  radius:120,
+  x: function() {
+    return racket.offsetLeft;
+  },
+  y: function() {
+    return racket.offsetTop;
+  }
+}
+
+function moveRacketTo(x, y) {
+  var halfRad = racketInfo.radius;
+  if(x>0 && x<maxX){
+    racket.style.left = x + "px";
+  }
+  if(y>0 && y<maxY){
+    racket.style.top = y + "px";
+  }
+}
+
+function updateTime() {
+  ball.style["animation-duration"] = jumpTime + "ms";
+  ball.style["transition-duration"] = (jumpTime * jumpBugFix) + "ms";
+
+}
+
+function moveBallTo(x, y) {
+  ball.style.left = x + "px";
+  ball.style.top = y + "px";
+}
+
+function randBetween(a, b) {
+  return Math.floor(Math.random() * b) + a;
+}
+
+function getSmallVariation() {
+  var x = randBetween(-randomVariation, randomVariation);
+  var y = randBetween(-randomVariation, randomVariation);
+  return [x, y];
+}
+
+function moveBallBy(x, y) {
+  ball.style.left = ballInfo.x() + x + "px";
+  ball.style.top = ballInfo.y() + y + "px";
+}
+
+function changeRotation(x,y){
+  var newSize = Math.abs(x)+Math.abs(y);
+  var transformTxt = "translate(-50%,-50%) rotateX("+x+"deg) rotateY("+y+"deg)";
+  racket.style.transform = transformTxt;
+  circle.style["box-shadow"] = (y/2)+"px "+(x/2)+"px 2px rgba(0,0,0,0.5)";
+}
+
+function followMouse(mouse) {
+  if(!disableFollow){
+     var offsetX = ballInfo.x() - racketInfo.x();
+     var offsetY = ballInfo.y() - racketInfo.y();
+    if(Math.abs(offsetX) < racketInfo.radius + ballInfo.radius
+       && Math.abs(offsetY) <  racketInfo.radius){
+      //changeRotation(-offsetY/2,-offsetX/3);
+    } else{
+      //changeRotation(0,0);
+    }
+    moveRacketTo(mouse.clientX, mouse.clientY);
+  }
+}
+
+function updateCounter(){
+  
+}
+
+function resetHighScore(){
+  saveScore(0,true);
+}
+
+function getHighScore(){
+  var highScore = Number(readCookie('highScore'));
+  if(highScore == undefined)
+    highScore = 0;
+  return highScore;
+}
+
+function saveScore(score,force){
+    if(score>getHighScore() || force){
+      createCookie('highScore',score,200);
+    }
+    highScoreElem.innerHTML = getHighScore();
+}
+
+function checkPing() {
+  dropping=false;
+  setTimeout(function(){
+    dropping=true;
+  },jumpTime/2);
+  var variation = getSmallVariation();
+  console.log(variation);
+  var offsetX = ballInfo.x() - racketInfo.x();
+  var offsetY = ballInfo.y() - racketInfo.y();
+  var moveX = ballInfo.x() + offsetX * movementFactor + variation[0];
+  var moveY = ballInfo.y() + offsetY * movementFactor + variation[1];
+  maxX = window.innerWidth;
+  maxY = window.innerHeight;
+  console.log(moveX + "|" + moveY);
+  console.log(offsetX+"|"+offsetY);
+  if(Math.abs(offsetX) < racketInfo.radius + ballInfo.radius
+     && Math.abs(offsetY) <  racketInfo.radius + ballInfo.radius &&
+     ballInfo.x() > 0 && ballInfo.y() > 0 && ballInfo.x() < maxX && ballInfo.y() < maxY
+    ){
+    movementFactor = (movementFactor >= maxFactor ? movementFactor : movementFactor+factorIncrease);
+    console.log(movementFactor);
+    hitsCounter.innerHTML = ++hits;
+    saveScore(hits);
+    moveBallTo(moveX, moveY);
+  } else{
+    endGame();
+  }
+ /* if (moveX < 0 || moveX > maxX || moveY < 0 || moveY > maxY) {
+    endGame();
+  }*/
+}
+
+function endGame() {
+  disableFollow = true;
+  racket.classList.add("deadBall");
+  clearInterval(bounceLoop);
+  showCursor();
+  ball.classList.add("deadBall");
+  document.getElementById('gameover').style.display = "block";
+  ball.style["animation-name"] = "";
+  document.getElementById('block-screen').style.display = "block";
+  document.getElementById('countdown').style.display = "none";
+}
+
+function updateCountdown(numb, callback) {
+  var number = numb - 1;
+  document.getElementById('countdown').innerHTML = number;
+  setTimeout(function() {
+    if (number > 1)
+      updateCountdown(number, callback);
+    else {
+      document.getElementById('block-screen').style.display = "none";
+      callback();
+    }
+  }, 1000);
+}
+
+function start() {
+  racket.style.width = racketInfo.radius*2 + "px";
+  racket.style.height = racketInfo.radius*2 +"px";
+  disableFollow = false;
+  hits = 0;
+  hideCursor();
+  hitsCounter.innerHTML = hits;
+  movementFactor = baseFactor;
+  saveScore(0);
+  racket.classList.remove("deadBall");
+  ball.classList.remove("deadBall");
+  document.getElementById('gameover').style.display = "none";
+  document.getElementById('countdown').style.display = "block";
+  ball.style.top = "50%";
+  ball.style.left = "50%";
+  updateTime();
+  var countdown = 3;
+  updateCountdown(countdown + 1, function() {
+    ball.style["animation-name"] = "bounce";
+    setTimeout(function() {
+      checkPing();
+      bounceLoop = setInterval(checkPing, jumpTime);
+    }, jumpBugFix * jumpTime);
+
+  });
+
+}
+
+
+
+window.onload = function() {
+  document.onmousemove = followMouse;
+  window.addEventListener('deviceorientation', handleOrientation, true);
+  start();
+}
+
+
+
+function handleOrientation(event) {
+  alert([event.beta,event.gamma])
+  var y = event.beta;  // In degree in the range [-180,180]
+  var x = event.gamma; // In degree in the range [-90,90]
+
+  // Because we don't want to have the device upside down
+  // We constrain the x value to the range [-90,90]
+  if (x >  90) { x =  90};
+  if (x < -90) { x = -90};
+  x = x;
+  y = y;
+  var newX = racketInfo.x()+x;
+  var newY = racketInfo.y()+y;
+  moveRacketTo(newX, newY);
+
+}
+</script>
+</body>
+</html>
