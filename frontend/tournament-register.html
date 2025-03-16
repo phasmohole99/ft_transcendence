@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Registration - ft_transcendence</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .tournament-register {
+            min-height: 100vh;
+            background: #000;
+            color: #0f0;
+            padding-bottom: 100px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-nav {
+            background: rgba(34, 34, 34, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #0f0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0f0;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(0, 255, 0, 0.1);
+            color: #0f0;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 6rem 2rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .register-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .register-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 1rem;
+        }
+
+        .register-header p {
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        .tournament-info-card {
+            background: rgba(34, 34, 34, 0.8);
+            border: 1px solid #0f0;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .tournament-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            color: #fff;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+            font-size: 0.9em;
+        }
+
+        .info-value {
+            color: #0f0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .register-form {
+            background: rgba(34, 34, 34, 0.8);
+            border: 1px solid #0f0;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00ff00;
+            box-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #0f0;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .form-button {
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .primary-button {
+            background: #0f0;
+            color: #000;
+            border: none;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: #0f0;
+            border: 1px solid #0f0;
+        }
+
+        .primary-button:hover {
+            background: #00cc00;
+        }
+
+        .secondary-button:hover {
+            background: rgba(0, 255, 0, 0.1);
+        }
+
+        .rules-section {
+            margin-top: 2rem;
+            color: #fff;
+            opacity: 0.8;
+            font-size: 0.9em;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .rules-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .rules-list li::before {
+            content: "•";
+            color: #0f0;
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .tournament-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+        }
+
+        .footer-container {
+            background: rgba(0, 0, 0, 0.95);
+            border-top: 2px solid #0f0;
+            padding: 2rem 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-section h3 {
+            color: #0f0;
+            font-size: 1.2em;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-link {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #0f0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #0f0;
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 255, 0, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section {
+                align-items: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tournament-register">
+        <nav class="top-nav">
+            <div class="nav-left">
+                <a href="home.html" class="logo">ft_transcendence</a>
+                <div class="nav-links">
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="chat.html">Chat</a>
+                    <a href="tournament.html">Tournaments</a>
+                    <a href="#leaderboard">Leaderboard</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="user-menu">
+                    <div class="user-avatar"></div>
+                    <span id="username">Username</span>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="register-header">
+                <h1>Tournament Registration</h1>
+                <p>Weekly Tournament #42</p>
+            </div>
+
+            <div class="tournament-info-card">
+                <h2>Tournament Details</h2>
+                <div class="tournament-info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Start Date</div>
+                        <div class="info-value">Mar 25, 2024</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Players</div>
+                        <div class="info-value">8/16</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Prize Pool</div>
+                        <div class="info-value">500 Points</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Format</div>
+                        <div class="info-value">Single Elimination</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="register-form">
+                <form id="tournamentRegistration">
+                    <div class="form-group">
+                        <label for="teamName">Team/Player Name</label>
+                        <input type="text" id="teamName" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail">Contact Email</label>
+                        <input type="email" id="contactEmail" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="discordId">Discord ID (Optional)</label>
+                        <input type="text" id="discordId" class="form-input">
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="rules" required>
+                        <label for="rules">I agree to the tournament rules and guidelines</label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="form-button primary-button">Register Now</button>
+                        <button type="button" class="form-button secondary-button" onclick="window.location.href='tournament.html'">Cancel</button>
+                    </div>
+                </form>
+
+                <div class="rules-section">
+                    <h3>Tournament Rules</h3>
+                    <ul class="rules-list">
+                        <li>Players must be online 15 minutes before their scheduled match</li>
+                        <li>Each match is best of 3 games</li>
+                        <li>Games are played to 11 points with a 2-point lead required</li>
+                        <li>No-show after 5 minutes results in forfeit</li>
+                        <li>Unsportsmanlike conduct will result in disqualification</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <div class="footer-links">
+                        <a href="aboutus.html" class="footer-link">
+                            <i class="fas fa-info-circle"></i> About Us
+                        </a>
+                        <a href="/#contact" class="footer-link">
+                            <i class="fas fa-envelope"></i> Contact
+                        </a>
+                        <a href="/#terms" class="footer-link">
+                            <i class="fas fa-file-contract"></i> Terms
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="dashboard.html" class="footer-link">
+                            <i class="fas fa-home"></i> Dashboard
+                        </a>
+                        <a href="tournament.html" class="footer-link">
+                            <i class="fas fa-trophy"></i> Tournaments
+                        </a>
+                        <a href="leaderboard.html" class="footer-link">
+                            <i class="fas fa-medal"></i> Leaderboard
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2024 ft_transcendence. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Add Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <script>
+            // Load user data from localStorage
+            const user = JSON.parse(localStorage.getItem('user')) || { username: 'Guest' };
+            document.getElementById('username').textContent = user.username;
+
+            // Handle form submission
+            document.getElementById('tournamentRegistration').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Registration submitted successfully!');
+                window.location.href = 'tournament.html';
+            });
+        </script>
+    </div>
+</body>
+</html> 

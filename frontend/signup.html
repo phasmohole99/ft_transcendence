@@ -6,7 +6,7 @@
 
   <meta charset="UTF-8"> 
 
-  <title>CodePen - Animated Login Form using Html &amp; CSS Only</title> 
+  <title>Sign Up - ft_transcendence</title> 
 
   <link rel="stylesheet" href="./style.css"> 
 
@@ -22,38 +22,42 @@
 
      <h2>Sign Up</h2> 
 
-     <div class="form"> 
+     <div class="form" id="signupForm"> 
 
       <div class="inputBox"> 
 
-       <input type="text" required> <i>Email</i> 
+       <input type="text" required id="email"> <i>Email</i> 
 
       </div> 
 
       <div class="inputBox"> 
 
-        <input type="text" required> <i>Username</i> 
+        <input type="text" required id="username"> <i>Username</i> 
  
        </div> 
 
       <div class="inputBox"> 
 
-       <input type="password" required> <i>Password</i> 
+       <input type="password" required id="password"> <i>Password</i> 
 
       </div>
 
 
       <div class="inputBox"> 
 
-        <input type="password" required> <i>Confirm password</i> 
+        <input type="password" required id="confirmPassword"> <i>Confirm password</i> 
  
        </div> 
 
       <div class="inputBox"> 
 
-       <input type="submit" value="Register"> 
+       <input type="submit" value="Register" onclick="handleSignup()"> 
 
       </div> 
+
+      <div class="links">
+        <a href="login.html">Already have an account? Login</a>
+      </div>
       
      </div> 
 
@@ -63,6 +67,51 @@
 
    
   </section> <!-- partial --> 
+
+  <div id="footer" class="footer"></div>
+
+  <script>
+    // Load the footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer').innerHTML = data)
+      .catch(error => console.error('Error loading the footer:', error));
+
+    function handleSignup() {
+      const email = document.getElementById('email').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      // Basic validation
+      if (!email || !username || !password || !confirmPassword) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
+      }
+
+      // Here you would typically make an API call to create the account
+      // For now, we'll just simulate a successful registration
+      localStorage.setItem('user', JSON.stringify({
+        email: email,
+        username: username,
+        isLoggedIn: true
+      }));
+
+      // Redirect to dashboard
+      window.location.href = 'dashboard.html';
+    }
+
+    // Add event listener for form submission
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      handleSignup();
+    });
+  </script>
 
  </body>
 
