@@ -1,11 +1,44 @@
-
-	<footer class="footer-container" style="position: fixed; bottom: 0; width: 100%; background-color: #000; padding: 10px;">
+<link rel="stylesheet" href="./style.css">
+<footer class="footer-container" >
+	<div class="footer-content">
 		<div class="footer-links">
-		  <a onclick="showPrivacyPolicy();" href="/#privacy-policy" class="footer-link privacy-link">
-			<i class="bi bi-lock"></i> <span class="footer-link-text" id="privacyPolicy">Privacy Policy</span> </a>
-		  <a onclick="showImprint();" href="/#contact" class="footer-link privacy-link">
-			<i class="bi bi-info-circle"></i> <span class="footer-link-text" id="impressum">Imprint</span> </a>
-		  <a onclick="showAboutUsPage();" href="/#aboutus" class="footer-link about-link text-right">
-			<i class="bi bi-people"></i> <span class="footer-link-text" id="aboutUs">About Us</span> </a>
+			<a href="aboutus.html" class="footer-link">
+				<i class="fas fa-users"></i>
+				About Us
+			</a>
+			<a href="Privacy_Policy.html" class="footer-link">
+				<i class="fas fa-shield-alt"></i>
+				Privacy Policy
+			</a>
+			<a href="/#terms" class="footer-link">
+				<i class="fas fa-file-contract"></i>
+				Terms
+			</a>
+			<a href="/#contact" class="footer-link">
+				<i class="fas fa-envelope"></i>
+				Contact
+			</a>
 		</div>
-	  </footer>
+		<div class="footer-right">
+			<div class="social-links">
+				<a href="#" class="social-link" title="GitHub">
+					<i class="fab fa-github"></i>
+				</a>
+				<a href="#" class="social-link" title="Twitter">
+					<i class="fab fa-twitter"></i>
+				</a>
+				<a href="#" class="social-link" title="LinkedIn">
+					<i class="fab fa-linkedin"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<footer class="footer-container" style="padding:10px; display: flex; justify-content: center; align-items: center; height: 100px;">
+	<div class="footer-content" style="width: 100%; display: flex; justify-content: flex-start; padding-left: 20px;">
+		<div class="footer-left">
+			<span style="color: #fff; opacity: 0.7;">© 2024 All rights reserved</span>
+		</div>
+	</div>
+</footer>

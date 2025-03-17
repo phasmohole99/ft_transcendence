@@ -25,6 +25,7 @@ body {
     color: #0f0;
     text-align: center;
     width: 100%;
+	margin-top: 80px;
 
 }
 #box1 {
@@ -124,24 +125,7 @@ body {
 	}
 }
 
-.footer {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	margin-top: auto;
-	bottom: 0;
-	/* padding: 50px; */
-}
-#footer a {
-	position: static;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	margin-top: auto;
-	color: #fff !important;
-	padding: 10px;
-	text-decoration: none;
-}
+
 #boxs {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, Min(100%, 17em));
@@ -163,7 +147,8 @@ body {
     </style>
 </head>
 <body>
-    
+    <div style="background: #000; color: #0f0;">
+		<div id="header"></div>
     <h1 id="ourteam" >Our Team</h1>
     <div id="boxs" class="container-fluid" style="justify-content: center;">
         <div id="box1" class="parent">
@@ -186,14 +171,32 @@ body {
             <a href="#" class="contact" style="right: 0;">Linkden</a>
         </div>
     </div>
-    <div id="footer" class="footer"></div>
+	
+    <div id="footer" style="margin-top: 30px;"></div>
 
+</div>
+	<!-- Add Font Awesome for icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	
+	<script>
+		// Load user data from localStorage
+		const user = JSON.parse(localStorage.getItem('user')) || { username: 'Guest' };
+		document.getElementById('username').textContent = user.username;
+		document.getElementById('profileName').textContent = user.username;
+	</script>
+	<script>
+	// Load the footer from the external HTML file
+	fetch('header.html')
+	  .then(response => response.text())
+	  .then(data => document.getElementById('header').innerHTML = data)
+	  .catch(error => console.error('Error loading the header:', error));
+	</script>
+	<script>
+	// Load the footer from the external HTML file
+	fetch('footer.html')
+	.then(response => response.text())
+	.then(data => document.getElementById('footer').innerHTML = data)
+	.catch(error => console.error('Error loading the footer:', error));
+	</script>
 </body>
-<script>
-  // Load the footer from the external HTML file
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('footer').innerHTML = data)
-    .catch(error => console.error('Error loading the footer:', error));
-</script>
 </html>

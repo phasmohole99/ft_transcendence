@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <style>
+
+        strong {
+            font-weight: bold;
+        }
+
+        .agree {
+            padding: 16px 32px;
+            background: #00ff00;
+            color: #fff;
+            font-weight: bold;
+            border: 0;
+            cursor: pointer;
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+        }
+        .agree:hover {
+            background: #66a329;
+        }
+        .agree:active {
+            background: #4d7a1f;
+        }
+
+        .container {
+            font-family: Arial, sans-serif;
+            text-align: left;
+            width: 100%;
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            text-align: left;
+        }
+
+        a {
+            color: teal;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="header"></div>
+
+        <main>
+                <div class="container">
+                    <hgroup>
+                        <br>
+                        <h2><span id="privpol">Privacy Policy</span></h2>
+                    </hgroup>
+                    <p><span id="privpolline1">Your privacy is important to us. It is Transcendence's policy to respect your privacy regarding any information we may collect from you across our website.</span></p>
+                    
+                    <h3><span id="infocollect">Information We Collect</span></h3>
+                    <p><span id="infocollectline1">We only collect the personal information you provide to us. This may include:</span></p>
+                    <ul>
+                        <li><span id="infocollectuser">• Username</span></li>
+                        <li><span id="infocollectemail">• Email address</span></li>
+                        <li><span id="infocollectphoto">• Profile photo</span></li>
+                    </ul>
+                    
+                    <h3><span id="deleting">Deleting Your Profile</span></h3>
+                    <p><span id="deletingline1">If you wish to delete your profile, please click on the "Delete Profile" button provided. Upon clicking, your profile information will be permanently removed from our system.</span></p>
+                    
+                    <h3><span id="deployinfo">Deployment Information</span></h3>
+                    <p><span id="deployinfoline1">Please note that Transcendence is a school project and not intended for production. It is deployed solely for educational purposes.</span></p>
+                    
+                    <h3><span id="contactus">Contact us</span></h3>
+                    <p><span id="contactusline1">If you have any questions about this Privacy Policy, please contact us via email at </span>
+                        <a href="mailto:ayacheyassine2000@gmail.com">ayacheyassine2000@gmail.com</a>
+                    </p>
+                </div>
+                    <button class="agree">Agree</button>
+        </main>
+
+        <div id="footer" style="margin-top: 30px;"></div>
+    </div>
+
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script>
+        // Load the header from the external HTML file
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data)
+            .catch(error => console.error('Error loading the header:', error));
+
+        // Load the footer from the external HTML file
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data)
+            .catch(error => console.error('Error loading the footer:', error));
+    </script>
+</body>
+</html>
