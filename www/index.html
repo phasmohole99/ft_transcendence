@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="shortcut icon" href="./assets/imgs/icon.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>GamePad | Your Game Portal!</title>
+    <script src="./assets/navigation.js" defer></script>
+    <script src="./assets/script.js" defer></script>
+</head>
+<body>
+    <!-- Background -->
+    <div id="app-background">
+        <!-- Decorative Shapes -->
+        <div class="shape x-shape" data-shapeIndex="1"></div>
+        <div class="shape x-shape" data-shapeIndex="2"></div>
+        <div class="shape o-shape" data-shapeIndex="3"></div>
+        <div class="shape o-shape" data-shapeIndex="4"></div>
+    </div>
+
+    <!-- Sections Container -->
+    <main id="app-sections">
+
+        <!-- Authentication Sections -->
+        <section id="auth-sections" class="section hidden">
+
+            <!-- Login Section -->
+            <section id="login" class="section credentials hidden" data-section="login">
+                <div>
+                    <a class="logo" href="/">gamepad</a>
+                    <form id="login-form">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" name="loginEmail" placeholder="Email address" required>
+
+                        <label for="loginPass">Password</label>
+                        <input type="password" id="loginPass" name="loginPass" placeholder="Password" minlength="8" required>
+
+                        <div class="form-options">
+                            <div>
+                                <input type="checkbox" id="rememberMe" name="rememberMe">
+                                <label for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="/account-recovery">Forgot password?</a>
+                        </div>
+
+                        <input type="submit" class="btn" value="Login">
+                    </form>
+                    <p class="footer-text">or</p>
+                    <button class="btn btn42">Log In with <span>42</span></button>
+                    <p class="footer-text">Don't have an account? <a href="/signup">Sign up</a></p>
+                </div>
+            </section>
+
+            <!-- Signup Section -->
+            <section id="signup" class="section credentials hidden" data-section="signup">
+                <div>
+                    <a class="logo" href="/">gamepad</a>
+                    <form id="signup-form">
+                        <label for="userName">Username</label>
+                        <input type="text" id="userName" name="userName" placeholder="Username" minlength="5" maxlength="15" required>
+
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" name="signupEmail" placeholder="Email address" required>
+
+                        <label for="signupPass">Password</label>
+                        <input type="password" id="signupPass" name="signupPass" placeholder="Password" minlength="8" required>
+
+                        <div class="form-options">
+                            <div>
+                                <input type="checkbox" id="useTerms" name="useTerms" required>
+                                <label for="useTerms">I agree to the <span>Terms & Privacy</span></label>
+                            </div>
+                        </div>
+
+                        <input type="submit" class="btn" value="Create an account">
+                    </form>
+                    <p class="footer-text">or</p>
+                    <button class="btn btn42">Sign Up with <span>42</span></button>
+                    <p class="footer-text">Already have an account? <a href="/login">Log in</a></p>
+                </div>
+            </section>
+
+            <!-- Account Recovery Section -->
+            <section id="account-recovery" class="section credentials hidden" data-section="account-recovery">
+                <div>
+                    <a class="logo" href="/">gamepad</a>
+                    <h2>Forgot Your Password?</h2>
+                    <form id="account-recovery-form">
+                        <label for="recoveryEmail">Email</label>
+                        <input type="email" id="recoveryEmail" name="recoveryEmail" placeholder="Email address" required>
+
+                        <div class="form-options">
+                            <a href="/login">&lt&lt Back To Login</a>
+                        </div>
+
+                        <input type="submit" class="btn" value="Submit">
+                    </form>
+                </div>
+            </section>
+
+            <!-- Two-Factor Authentication Section -->
+            <section id="twoFA" class="section credentials hidden" data-section="twoFA">
+                <div>
+                    <a class="logo" href="/">gamepad</a>
+                    <h2>2FA Verification Code</h2>
+                    <form id="twoFA-form">
+                        <label for="digit1">We sent a code to <strong id="twoFA-email">email@example.com</strong></label>
+                        <div class="form-options">
+                            <input type="number" maxlength="1" id="digit1" required>
+                            <input type="number" maxlength="1" id="digit2" required>
+                            <input type="number" maxlength="1" id="digit3" required>
+                            <input type="number" maxlength="1" id="digit4" required>
+                        </div>
+                        <input type="submit" class="btn" value="Verify">
+                    </form>
+                    <p class="footer-text">Didn't get a code? <a>Click to Resend</a></p>
+                </div>
+            </section>
+        </section>
+
+        <!-- Dashboard Sections -->
+        <section id="dash-sections" class="section hidden">
+
+            <!-- Dashboard Navigation -->
+            <nav id="navigation">
+                <a class="logo nav-logo" href="/">gamepad</a>
+
+                <!-- Friend Search Nav Section -->
+                <section id="search-box" class="nav-section">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" id="nav-search" name="nav-search" placeholder="Search...">
+                </section>
+
+                <!-- Navigation Home Section -->
+                <section class="nav-section">
+                    <label>menu</label>
+                    <ul>
+                        <li data-section="home">
+                            <a href="/home"><i class="fa-brands fa-slack"></i>home</a>
+                        </li>
+                        <li data-section="friends">
+                            <a href="/friends"><i class="fa-solid fa-user-group"></i>friends</a>
+                        </li>
+                        <li data-section="chat">
+                            <a href="/chat"><i class="fa-solid fa-message"></i>chat</a>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr class="nav-separator">
+
+                <!-- Navigation Games Section -->
+                <section class="nav-section">
+                    <label>games</label>
+                    <ul>
+                        <li data-section="pong">
+                            <a href="/pong"><i class="fa-solid fa-table-tennis-paddle-ball"></i>ping pong</a>
+                        </li>
+                        <li data-section="tictac">
+                            <a href="/tictac"><i class="fa-solid fa-xmark"></i>tic tac toe</a>
+                        </li>
+                        <li data-section="rps">
+                            <a href="/rps"><i class="fa-solid fa-hand-back-fist"></i>rockPaper</a>
+                        </li>
+                    </ul>
+                </section>
+
+                <hr class="nav-separator nav-float-down">
+
+                <section class="nav-section">
+                    <ul>
+                        <li data-section="settings">
+                            <a href="/settings"><i class="fa-solid fa-gear"></i>settings</a>
+                        </li>
+                        <li id="logout-btn">
+                            <a href="/"><i class="fa-solid fa-right-from-bracket"></i>logout</a>
+                        </li>
+                        <hr class="nav-separator">
+                        <li data-section="profile">
+                            <a href="/profile">
+                                <figure class="profile">
+                                    <img src="https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="profile picture" data-profile-img>
+                                    <div class="profile-data">
+                                        <figcaption data-profile-username>username</figcaption>
+                                        <p data-profile-id>id: 521369</p>
+                                    </div>
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </nav>
+
+            <!-- Home Section -->
+            <section id="home" class="section dashboard hidden" data-section="home">
+
+                <!-- Section Title -->
+                <header>
+                    <h1 class="header-title">Welcome Back!</h1>
+                    <p class="header-description">Here are the website latest activities.</p>
+                </header>
+
+                <!-- Games Container -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Games</h2>
+
+                    <!-- Games Cards Container -->
+                    <div class="cards-container">
+                        <a href="/pong" class="card" data-game="pong"></a>
+                        <a href="/tictac" class="card" data-game="tictac"></a>
+                        <a href="/rps" class="card" data-game="rps"></a>
+                    </div>
+                </div>
+
+                <!-- Activity Container -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Recent Activity</h2>
+
+                    <!-- Statistics Cards Container -->
+                    <div class="cards-container" id="activity-cards">
+                        <div class="card">
+                            <i class="fa-solid fa-gamepad card-icon"></i>
+                            <h3 class="card-title">Games Played</h3>
+                            <p class="card-value" data-games>42</p>
+                        </div>
+                        <div class="card">
+                            <i class="fa-solid fa-trophy card-icon"></i>
+                            <h3 class="card-title">Wins</h3>
+                            <p class="card-value" data-wins>28</p>
+                        </div>
+                        <div class="card">
+                            <i class="fa-solid fa-skull card-icon"></i>
+                            <h3 class="card-title">losses</h3>
+                            <p class="card-value" data-losses>14</p>
+                        </div>
+                    </div>
+
+                    <!-- Activity List -->
+                    <ul class="activity-list">
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p><strong>Player123</strong> won against <strong>Player456</strong> in <strong>Ping Pong</strong>.</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p><strong>Player789</strong> won against <strong>Player012</strong> in <strong>Tic Tac Toe</strong>.</p>
+                            <span class="activity-time">5 hours ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p><strong>Player345</strong> won against <strong>Player678</strong> in <strong>Rock Paper Scissors</strong>.</p>
+                            <span class="activity-time">1 day ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p><strong>Player901</strong> won against <strong>Player234</strong> in <strong>Ping Pong</strong>.</p>
+                            <span class="activity-time">1 day ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p><strong>Player123</strong> won against <strong>Player456</strong> in <strong>Ping Pong</strong>.</p>
+                            <span class="activity-time">1 day ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p><strong>Player789</strong> won against <strong>Player012</strong> in <strong>Tic Tac Toe</strong>.</p>
+                            <span class="activity-time">1 day ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p><strong>Player345</strong> won against <strong>Player678</strong> in <strong>Rock Paper Scissors</strong>.</p>
+                            <span class="activity-time">2 days ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p><strong>Player901</strong> won against <strong>Player234</strong> in <strong>Ping Pong</strong>.</p>
+                            <span class="activity-time">2 days ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p><strong>Player123</strong> won against <strong>Player456</strong> in <strong>Ping Pong</strong>.</p>
+                            <span class="activity-time">2 days ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p><strong>Player789</strong> won against <strong>Player012</strong> in <strong>Tic Tac Toe</strong>.</p>
+                            <span class="activity-time">2 days ago</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="section dashboard hidden" data-section="profile">
+
+                <!-- Section Title -->
+                <header>
+                    <h1 class="header-title">profile</h1>
+                    <p class="header-description">view users profile stats.</p>
+                </header>
+
+                <!-- Profile Statistics Container -->
+                <div class="dashboard-container">
+                    <figure class="profile">
+                        <img src="https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="profile picture" data-profile-img>
+                        <div class="profile-data">
+                            <figcaption data-profile-username>username<span data-profile-id>id: 521369</span></figcaption>
+                            <div class="profile-buttons">
+                                <button class="btn">follow</button>
+                                <button class="btn">get in touch</button>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="cards-container">
+                        <div class="card">
+                            <i class="fa-solid fa-gamepad card-icon"></i>
+                            <p class="card-value" data-user-games>42</p>
+                        </div>
+                        <div class="card">
+                            <i class="fa-solid fa-trophy card-icon"></i>
+                            <p class="card-value" data-user-wins>28</p>
+                        </div>
+                        <div class="card">
+                            <i class="fa-solid fa-skull card-icon"></i>
+                            <p class="card-value" data-user-losses>14</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Activity List -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Recent Activity</h2>
+                    <ul class="activity-list">
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p>won a game of <strong>Ping Pong</strong> against <strong>Player123</strong>.</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p>won a game of <strong>Tic Tac Toe</strong> against <strong>Player923</strong>.</p>
+                            <span class="activity-time">5 hours ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-skull"></i>
+                            <p>lost a game of <strong>Tic Tac Toe</strong> against <strong>Player053</strong>.</p>
+                            <span class="activity-time">1 day ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p>won a game of <strong>Ping Pong</strong> against <strong>Player123</strong>.</p>
+                            <span class="activity-time">1 day ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-skull"></i>
+                            <p>lost a game of <strong>Rock Paper Scissors</strong> against <strong>Player123</strong>.</p>
+                            <span class="activity-time">1 day ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p>won a game of <strong>Ping Pong</strong> against <strong>Player123</strong>.</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p>won a game of <strong>Tic Tac Toe</strong> against <strong>Player923</strong>.</p>
+                            <span class="activity-time">5 hours ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-skull"></i>
+                            <p>lost a game of <strong>Tic Tac Toe</strong> against <strong>Player053</strong>.</p>
+                            <span class="activity-time">1 day ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-trophy"></i>
+                            <p>won a game of <strong>Ping Pong</strong> against <strong>Player123</strong>.</p>
+                            <span class="activity-time">1 day ago</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-skull"></i>
+                            <p>lost a game of <strong>Rock Paper Scissors</strong> against <strong>Player123</strong>.</p>
+                            <span class="activity-time">1 day ago</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="section dashboard hidden" data-section="settings">
+
+                <!-- Section Title -->
+                <header>
+                    <h1 class="header-title">Settings</h1>
+                    <p class="header-description">Manage your account preferences and security settings.</p>
+                </header>
+
+                <!-- Profile Settings Container -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Profile settings</h2>
+                    <form id="profile-settings-form">
+                        <div class="form-options">
+                            <div class="user-settings">
+                                <label for="settings-username">Username</label>
+                                <input type="text" id="settings-username" name="settings-username" placeholder="Username" minlength="5" maxlength="15" value="username" required>
+
+                                <label for="settings-Email">Email</label>
+                                <input type="email" id="settings-Email" name="settings-Email" placeholder="Email address" value="username@gmail.com" required>
+
+                                <label for="settings-2fa">Enable-2FA</label>
+                                <label class="switch" for="settings-2fa">
+                                    <input type="checkbox" id="settings-2fa" name="settings-2fa">
+                                    <div class="slider"></div>
+                                </label>
+                            </div>
+
+                            <!-- Profile Picture Setting -->
+                            <input type="file" id="settings-picture" name="settings-picture" accept="image/*">
+                            <label for="settings-picture">
+                                <figure class="profile">
+                                    <img src="https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="profile picture" data-profile-img>
+                                    <label for="settings-picture" class="btn">
+                                        <i class="fa-regular fa-pen-to-square"></i>Edit
+                                    </label>
+                                </figure>
+                            </label>
+                        </div>
+                        <input type="submit" class="btn" value="update profile settings">
+                    </form>
+                </div>
+
+                <!-- Privacy Settings Container -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Privacy settings</h2>
+                    <form id="privacy-settings-form">
+                        <!-- Change Password Setting -->
+                        <div class="cards-container">
+                            <div class="card">
+                                <h3 class="card-title">update password</h3>
+                                <input type="password" id="current-password" name="current-password" placeholder="Current Password">
+                                <input type="password" id="new-password" name="new-password" placeholder="New Password">
+                            </div>
+                            <!-- Change Account Visibility Settings -->
+                            <div class="card">
+                                <h3 class="card-title">account visibility</h3>
+                                <div>
+                                    <div>
+                                        <label for="profile-visibility">Profile Visibility</label>
+                                        <select id="profile-visibility" name="profile-visibility">
+                                            <option value="public">Public</option>
+                                            <option value="friends-only">Friends Only</option>
+                                            <option value="private">Private</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="activity-visibility">Activity Visibility</label>
+                                        <select id="activity-visibility" name="activity-visibility">
+                                            <option value="public">Public</option>
+                                            <option value="friends-only">Friends Only</option>
+                                            <option value="private">Private</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn" value="update privacy settings">
+                    </form>
+                </div>
+
+                <!-- Danger Settings Container -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Danger zone</h2>
+                    <ul class="activity-list">
+                        <li>
+                            <p><strong>delete account</strong><br>This action is permanent and cannot be undone.</p>
+                            <button id="delete-account-btn" class="btn delete-btn">Delete</button>
+                        </li>
+                        <li>
+                            <p><strong>delete history</strong><br>This will permanently remove your history. This action cannot be undone.</p>
+                            <button id="delete-history-btn" class="btn delete-btn">Delete</button>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </section>
+    </main>
+</body>
+</html>

@@ -1,16 +1,32 @@
-# ft_transcendence
-## Plan
-### Front-End Part
-- [ ] Login Page
-- [ ] Two-Factor Authentication (2FA) Step Page
-- [ ] Signup Page
-- [ ] Password Recovery Page
-- [ ] Profile Page
-    - [ ] User Picture
-    - [ ] User Name
-    - [ ] User ID
-    - [ ] Games History
-    - [ ] Add/Remove Friends (if not viewing own profile)
+# Transcendence
+This is a full-stack web development project designed to build a gaming platform that offers classic games like ping pong. The primary objectives are to manage user accounts, ensure secure authentication, handle data efficiently, and support multiplayer functionalities.
+# Features
+* **Account Management**
+* **Password Recovery**
+* **Two-Factor Authentication (2FA)**
+* **Live Chat**
+* **Multiplayer Capabilities**
+# Implemented Technologies
+* **HTML**
+* **CSS**
+* **JavaScript**
+* **Python**
+* **Django**
+* **PostgreSQL**
+* **Docker**
+# Modules
+## Design
+### Front-End
+- [X] Login Page
+- [X] Two-Factor Authentication (2FA) Step Page
+- [X] Signup Page
+- [X] Password Recovery Page
+- [X] Profile Page
+    - [X] User Picture
+    - [X] User Name
+    - [X] User ID
+    - [X] Games History
+    - [X] Add/Remove Friends (if not viewing own profile)
 - [ ] Friends List Page
     - [ ] User Picture
     - [ ] User Name
@@ -20,37 +36,39 @@
     - [ ] User Name
     - [ ] Option to Add/Remove User
 - [ ] Settings Page
-    - [ ] Update User Name
-    - [ ] Update User Email
-    - [ ] Update Profile Picture
-    - [ ] Update Password
+    - [X] Update User Name
+    - [X] Update User Email
+    - [X] Update Profile Picture
+    - [X] Update Password
     - [ ] Link with 42API
-    - [ ] Delete Account History
-    - [ ] Delete Account
-    - [ ] Restrict Profile Visibility
-    - [ ] Enable/Disable 2FA
-- [ ] Navigation
-    - [ ] Logo
-    - [ ] Nav Options
-    - [ ] Profile Picture
-    - [ ] Profile Name
-    - [ ] Profile ID
-- [ ] Home Page
-    - [ ] Games Buttons
-    - [ ] Website Recent Activity
+    - [X] Delete Account History
+    - [X] Delete Account
+    - [X] Restrict Profile Visibility
+    - [X] Enable/Disable 2FA
+- [X] Navigation
+    - [X] Logo
+    - [X] Nav Options
+    - [X] Profile Picture
+    - [X] Profile Name
+    - [X] Profile ID
+- [X] Home Page
+    - [X] Games Buttons
+    - [X] Website Recent Activity
 - [ ] Chat Page
     - [ ] List of Friends
     - [ ] Chat Box to Send Messages
 - [ ] ping pong Page
+- [ ] Tic Tac Toe Page
 - [ ] RPS Page
-- [ ] Single Page Navigation Using JavaScript
+- [X] Single Page Navigation Using JavaScript
 - [ ] Handle Login Form JavaScript
 - [ ] Handle Signup Form JavaScript
 - [ ] Handle Recovery Form JavaScript
 - [ ] Handle Settings Form JavaScript
 - [ ] Handle users Data using JavaScript
 - [ ] Ensure Responsiveness Across All Designs
-## Back-End Part
+### Code
+## Back-End
 - [ ] Account Management
     - [ ] Handle Account Creation
     - [ ] Handle Account Deletion
@@ -61,6 +79,7 @@
     - [ ] Chat webSocket
     - [ ] User Data API
     - [ ] PingPong webSocket
+    - [ ] tic tac toe webSocket
     - [ ] RPS webSocket
 - [ ] Game Reporting
     - [ ] Archive Game Result
@@ -69,9 +88,9 @@
 - [ ] Password Security
     - [ ] Hash User Passwords
 - [ ] handle all aspecs using Docker containers
-## DataBase Part
+## DataBase
 ### users Data
-- [X] User ID
+- [ ] User ID
 - [ ] Username
 - [ ] Email
 - [ ] Hashed Password
@@ -89,6 +108,8 @@
 - [ ] Custom Password Hashing
 - [ ] Validate All Form Inputs
 - [ ] Protect Against SQL Injections
-- [ ] Implement HTTPS Protocol
+- [X] Implement HTTPS Protocol
 # License
 This Project Is Licensed Under **WTFPL**
+
+ WTFPL &copy; [OussamaKamili](https://github.com/oussamakami/transcendence/blob/master/LICENSE)
