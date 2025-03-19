@@ -112,4 +112,4 @@ This is a full-stack web development project designed to build a gaming platform
 # License
 This Project Is Licensed Under **WTFPL**
 
- WTFPL &copy; [OussamaKamili](https://github.com/oussamakami/transcendence/blob/master/LICENSE)
+ WTFPL &copy; 
