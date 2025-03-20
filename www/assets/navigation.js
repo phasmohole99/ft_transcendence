@@ -7,6 +7,7 @@ function isUserLogedIn() {
 class navigationHandler {
     constructor() {
         this.anchors = document.querySelectorAll("a");
+        this.messageButtons = document.querySelectorAll('.action-btn[title="Message"]');
 
         this.initiate();
     }
@@ -71,12 +72,24 @@ class navigationHandler {
         this.addBrowserHistory(target);
     }
 
+    initMessageButtons() {
+        this.messageButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                // Navigate to chat section
+                this.redirect("/chat");
+            });
+        });
+    }
+
     initiate() {
         this.anchors.forEach(anchor => {
             anchor.addEventListener("click", this.eventHandler.bind(this));
             window.addEventListener("popstate", _ => this.redirect(location.pathname));
             document.addEventListener("DOMContentLoaded", _ => this.redirect(location.pathname));
-        })
+        });
+        
+        // Initialize message buttons
+        this.initMessageButtons();
     }
 }
 
@@ -94,4 +107,83 @@ document.getElementById('logout-link').addEventListener('click', function(e) {
     
     // Redirect to login page
     window.location.href = '/www/login.html';
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Create mobile menu button
+    const mobileMenuButton = document.createElement('button');
+    mobileMenuButton.className = 'mobile-menu-button';
+    mobileMenuButton.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
+
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-menu-overlay';
+
+    const extendedMenu = document.createElement('div');
+    extendedMenu.className = 'mobile-extended-menu';
+    extendedMenu.innerHTML = `
+        <div class="menu-section games-section">
+            <h3>Games</h3>
+            <ul>
+                <li data-section="pong">
+                    <a href="#" data-href="/pong"><i class="fa-solid fa-table-tennis-paddle-ball"></i>Ping Pong</a>
+                </li>
+                <li data-section="pingpongsolo">
+                    <a href="#" data-href="/pingpongsolo"><i class="fa-solid fa-xmark"></i>Solo Play</a>
+                </li>
+                <li data-section="tictac">
+                    <a href="#" data-href="/tictac"><i class="fa-solid fa-xmark"></i>Tic Tac Toe</a>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-section settings-section">
+            <h3>Settings</h3>
+            <ul>
+                <li data-section="about">
+                    <a href="#" data-href="/about"><i class="fa-solid fa-circle-info"></i>About Us</a>
+                </li>
+                <li data-section="settings">
+                    <a href="#" data-href="/settings"><i class="fa-solid fa-gear"></i>Settings</a>
+                </li>
+                <li data-section="logout">
+                    <a href="#" id="mobile-logout-link"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                </li>
+            </ul>
+        </div>
+    `;
+
+    // Add elements to the body
+    document.body.appendChild(mobileMenuButton);
+    document.body.appendChild(overlay);
+    document.body.appendChild(extendedMenu);
+
+    // Toggle menu functionality
+    mobileMenuButton.addEventListener('click', function() {
+        overlay.classList.add('active');
+        extendedMenu.classList.add('active');
+    });
+
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', function() {
+        overlay.classList.remove('active');
+        extendedMenu.classList.remove('active');
+    });
+
+    // Handle mobile menu navigation
+    extendedMenu.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (link && link.dataset.href) {
+            e.preventDefault();
+            navigation.redirect(link.dataset.href);
+            // Close the menu after navigation
+            overlay.classList.remove('active');
+            extendedMenu.classList.remove('active');
+        }
+    });
+
+    // Handle mobile logout
+    document.getElementById('mobile-logout-link')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        localStorage.removeItem('userAuthenticated');
+        window.location.href = '/www/login.html';
+    });
 });

@@ -156,6 +156,9 @@
                         <li data-section="chat">
                             <a href="/chat"><i class="fa-solid fa-message"></i>chat</a>
                         </li>
+                        <li data-section="tournament">
+                            <a href="/tournament"><i class="fa-solid fa-trophy"></i>tournament</a>
+                        </li>
                         <li data-section="leaderboard">
                             <a href="/leaderboard"><i class="fa-solid fa-trophy"></i>leaderboard</a>
                         </li>
@@ -197,7 +200,7 @@
                         <li data-section="profile">
                             <a href="/profile">
                                 <figure class="profile">
-                                    <img src="../frontend/images/dog-and-hitler.jpg" alt="profile picture" data-profile-img>
+                                    <img src="./assets/imgs/dog-and-hitler.jpg" alt="profile picture" data-profile-img>
                                     <div class="profile-data">
                                         <figcaption data-profile-username>username</figcaption>
                                         <p data-profile-id>id: 521369</p>
@@ -320,7 +323,7 @@
                 <!-- Profile Statistics Container -->
                 <div class="dashboard-container">
                     <figure class="profile">
-                        <img src="../frontend/images/dog-and-hitler.jpg" alt="profile picture" data-profile-img>
+                        <img src="./assets/imgs/dog-and-hitler.jpg" alt="profile picture" data-profile-img>
                         <div class="profile-data">
                             <figcaption data-profile-username>username<span data-profile-id>id: 521369</span></figcaption>
                             <div class="profile-buttons">
@@ -557,37 +560,8 @@
             <section id="chat" class="section dashboard hidden" data-section="chat">
                 <!-- Section Title -->
                 <div class="chat-container">
-                    <div id="header"></div>
             
                     <div class="chat-layout" style="margin-top: 20px;">
-                        <div class="contacts-panel">
-                            <div class="search-bar">
-                                <input type="text" class="search-input" placeholder="Search contacts...">
-                            </div>
-                            <div class="contacts-list">
-                                <div class="contact-item active">
-                                    <div class="contact-avatar"></div>
-                                    <div class="contact-info">
-                                        <div class="contact-name">Player1</div>
-                                        <div class="contact-status">Online</div>
-                                    </div>
-                                </div>
-                                <div class="contact-item">
-                                    <div class="contact-avatar"></div>
-                                    <div class="contact-info">
-                                        <div class="contact-name">Player2</div>
-                                        <div class="contact-status">Last seen 2h ago</div>
-                                    </div>
-                                </div>
-                                <div class="contact-item">
-                                    <div class="contact-avatar"></div>
-                                    <div class="contact-info">
-                                        <div class="contact-name">Player3</div>
-                                        <div class="contact-status">Online</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
             
                         <div class="chat-panel">
                             <div class="chat-header">
@@ -619,11 +593,202 @@
                             </div>
                         </div>
                     </div>
-                    <div id="footer" style="padding-top: 20px;"></div>
                 </div>
         
             </section>
 
+            <!-- Friends Section -->
+            <section id="friends" class="section dashboard hidden" data-section="friends">
+                <!-- Section Title -->
+                <header>
+                    <h1 class="header-title">Friends Hub</h1>
+                    <p class="header-description">Connect, play, and manage your gaming network</p>
+                </header>
+
+                <!-- Friends Stats Overview -->
+                <div class="dashboard-container stats-overview">
+                    <div class="cards-container">
+                        <div class="stat-card">
+                            <i class="fa-solid fa-users card-icon"></i>
+                            <div class="stat-info">
+                                <h3>Total Friends</h3>
+                                <p class="stat-value">25</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fa-solid fa-circle-dot card-icon online"></i>
+                            <div class="stat-info">
+                                <h3>Online Now</h3>
+                                <p class="stat-value">12</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fa-solid fa-gamepad card-icon"></i>
+                            <div class="stat-info">
+                                <h3>Currently Playing</h3>
+                                <p class="stat-value">8</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fa-solid fa-user-plus card-icon"></i>
+                            <div class="stat-info">
+                                <h3>Pending Requests</h3>
+                                <p class="stat-value">5</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Friends Management Container -->
+                <div class="dashboard-container">
+                    <div class="friends-header">
+                        <div class="friends-actions">
+                            <button class="btn active">All Friends</button>
+                            <button class="btn">Online</button>
+                            <button class="btn">Playing</button>
+                            <button class="btn">Pending</button>
+                        </div>
+                        <div class="friends-search">
+                            <div class="search-bar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Search friends...">
+                            </div>
+                            <button class="btn primary"><i class="fa-solid fa-user-plus"></i> Add Friend</button>
+                        </div>
+                    </div>
+
+                    <!-- Friends Grid View -->
+                    <div class="friends-grid">
+                        <!-- Online & Playing Friends -->
+                        <div class="friend-card playing">
+                            <div class="friend-status-indicator"></div>
+                            <div class="friend-avatar">
+                                <img src="./assets/imgs/avatar1.jpg" alt="Player1">
+                            </div>
+                            <div class="friend-info">
+                                <h3>Player1</h3>
+                                <span class="status">Playing Ping Pong</span>
+                                <div class="friend-stats">
+                                    <span><i class="fa-solid fa-trophy"></i> 42</span>
+                                    <span><i class="fa-solid fa-gamepad"></i> 67</span>
+                                    <span><i class="fa-solid fa-ranking-star"></i> #123</span>
+                                </div>
+                            </div>
+                            <div class="friend-actions">
+                                <button class="action-btn" title="Message"><i class="fa-solid fa-message"></i></button>
+                                <button class="action-btn" title="Spectate"><i class="fa-solid fa-eye"></i></button>
+                                <button class="action-btn" title="Challenge"><i class="fa-solid fa-trophy"></i></button>
+                                <div class="action-more">
+                                    <button class="action-btn"><i class="fa-solid fa-ellipsis"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a href="#"><i class="fa-solid fa-user-minus"></i> Remove Friend</a>
+                                        <a href="#"><i class="fa-solid fa-ban"></i> Block</a>
+                                        <a href="#"><i class="fa-solid fa-flag"></i> Report</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Online Friend -->
+                        <div class="friend-card online">
+                            <div class="friend-status-indicator"></div>
+                            <div class="friend-avatar">
+                                <img src="./assets/imgs/avatar2.jpg" alt="Player2">
+                            </div>
+                            <div class="friend-info">
+                                <h3>Player2</h3>
+                                <span class="status">Online</span>
+                                <div class="friend-stats">
+                                    <span><i class="fa-solid fa-trophy"></i> 38</span>
+                                    <span><i class="fa-solid fa-gamepad"></i> 52</span>
+                                    <span><i class="fa-solid fa-ranking-star"></i> #245</span>
+                                </div>
+                            </div>
+                            <div class="friend-actions">
+                                <button class="action-btn" title="Message"><i class="fa-solid fa-message"></i></button>
+                                <button class="action-btn" title="Invite"><i class="fa-solid fa-user-plus"></i></button>
+                                <button class="action-btn" title="Challenge"><i class="fa-solid fa-trophy"></i></button>
+                                <div class="action-more">
+                                    <button class="action-btn"><i class="fa-solid fa-ellipsis"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a href="#"><i class="fa-solid fa-user-minus"></i> Remove Friend</a>
+                                        <a href="#"><i class="fa-solid fa-ban"></i> Block</a>
+                                        <a href="#"><i class="fa-solid fa-flag"></i> Report</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Offline Friend -->
+                        <div class="friend-card offline">
+                            <div class="friend-status-indicator"></div>
+                            <div class="friend-avatar grayscale">
+                                <img src="./assets/imgs/avatar3.jpg" alt="Player3">
+                            </div>
+                            <div class="friend-info">
+                                <h3>Player3</h3>
+                                <span class="status">Last seen 2h ago</span>
+                                <div class="friend-stats">
+                                    <span><i class="fa-solid fa-trophy"></i> 29</span>
+                                    <span><i class="fa-solid fa-gamepad"></i> 45</span>
+                                    <span><i class="fa-solid fa-ranking-star"></i> #356</span>
+                                </div>
+                            </div>
+                            <div class="friend-actions">
+                                <button class="action-btn" title="Message"><i class="fa-solid fa-message"></i></button>
+                                <div class="action-more">
+                                    <button class="action-btn"><i class="fa-solid fa-ellipsis"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a href="#"><i class="fa-solid fa-user-minus"></i> Remove Friend</a>
+                                        <a href="#"><i class="fa-solid fa-ban"></i> Block</a>
+                                        <a href="#"><i class="fa-solid fa-flag"></i> Report</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more friend cards as needed -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="btn"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="page-numbers">
+                            <button class="btn active">1</button>
+                            <button class="btn">2</button>
+                            <button class="btn">3</button>
+                            <span>...</span>
+                            <button class="btn">12</button>
+                        </div>
+                        <button class="btn"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Friend Requests Container -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Pending Requests</h2>
+                    <div class="requests-grid">
+                        <div class="request-card">
+                            <div class="friend-avatar">
+                                <img src="./assets/imgs/avatar7.jpg" alt="Player7">
+                            </div>
+                            <div class="request-info">
+                                <h3>Player7</h3>
+                                <p>3 mutual friends</p>
+                                <div class="friend-stats">
+                                    <span><i class="fa-solid fa-trophy"></i> 15</span>
+                                    <span><i class="fa-solid fa-gamepad"></i> 23</span>
+                                </div>
+                            </div>
+                            <div class="request-actions">
+                                <button class="btn accept">Accept</button>
+                                <button class="btn decline">Decline</button>
+                            </div>
+                        </div>
+                        <!-- Add more request cards as needed -->
+                    </div>
+                </div>
+            </section>
 
             <!-- Leaderboard Section -->
             <section id="leaderboard" class="section dashboard hidden" data-section="leaderboard">
@@ -735,11 +900,70 @@
        
                 </div>
             </section>
-        </section>
-    </main>
-        </section>
-    </main>
 
+            <!-- Tournament Section -->
+            <section id="tournament" class="section dashboard hidden" data-section="tournament">
+                <!-- Section Title -->
+                <header>
+                    <h1 class="header-title">Tournaments</h1>
+                    <p class="header-description">Join or create tournaments and compete with other players.</p>
+                </header>
+
+                <!-- Active Tournaments Container -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Active Tournaments</h2>
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3 class="card-title">Ping Pong Championship</h3>
+                            <p>Status: Registration Open</p>
+                            <p>Players: 12/16</p>
+                            <p>Starts in: 2 hours</p>
+                            <button class="btn">Join Tournament</button>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Tic Tac Toe League</h3>
+                            <p>Status: In Progress</p>
+                            <p>Players: 8/8</p>
+                            <p>Round: Quarter Finals</p>
+                            <button class="btn" disabled>Tournament Full</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Create Tournament Container -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Create Tournament</h2>
+                    <form id="create-tournament-form">
+                        <div class="form-options">
+                            <div>
+                                <label for="tournament-name">Tournament Name</label>
+                                <input type="text" id="tournament-name" name="tournament-name" placeholder="Enter tournament name" required>
+                            </div>
+                            <div>
+                                <label for="game-type">Game Type</label>
+                                <select id="game-type" name="game-type" required>
+                                    <option value="pong">Ping Pong</option>
+                                    <option value="tictac">Tic Tac Toe</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="max-players">Maximum Players</label>
+                                <select id="max-players" name="max-players" required>
+                                    <option value="4">4 Players</option>
+                                    <option value="8">8 Players</option>
+                                    <option value="16">16 Players</option>
+                                    <option value="32">32 Players</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="start-time">Start Time</label>
+                                <input type="datetime-local" id="start-time" name="start-time" required>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn" value="Create Tournament">
+                    </form>
+                </div>
+            </section>
         </section>
     </main>
 </body>
