@@ -9,6 +9,11 @@
     <title>GamePad | Your Game Portal!</title>
     <script src="./assets/navigation.js" defer></script>
     <script src="./assets/script.js" defer></script>
+    <style>
+        :root {
+            --background: #222 !important;
+        }
+    </style>
     <!-- <script>
         if (!localStorage.getItem('userAuthenticated')) {
             window.location.href = 'login.html';
@@ -166,6 +171,9 @@
                         <li data-section="pong">
                             <a href="/pong"><i class="fa-solid fa-table-tennis-paddle-ball"></i>ping pong</a>
                         </li>
+                        <li data-section="pingpongsolo">
+                            <a href="/pingpongsolo"><i class="fa-solid fa-xmark"></i>solo play</a>
+                        </li>
                         <li data-section="tictac">
                             <a href="/tictac"><i class="fa-solid fa-xmark"></i>tic tac toe</a>
                         </li>
@@ -182,14 +190,14 @@
                         <li data-section="settings">
                             <a href="/settings"><i class="fa-solid fa-gear"></i>settings</a>
                         </li>
-                        <li id="logout-btn">
-                            <a href="/"><i class="fa-solid fa-right-from-bracket"></i>logout</a>
+                        <li data-section="logout">
+                            <a href="#" id="logout-link"><i class="fa-solid fa-right-from-bracket"></i>logout</a>
                         </li>
                         <hr class="nav-separator">
                         <li data-section="profile">
                             <a href="/profile">
                                 <figure class="profile">
-                                    <img src="https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="profile picture" data-profile-img>
+                                    <img src="../frontend/images/dog-and-hitler.jpg" alt="profile picture" data-profile-img>
                                     <div class="profile-data">
                                         <figcaption data-profile-username>username</figcaption>
                                         <p data-profile-id>id: 521369</p>
@@ -312,7 +320,7 @@
                 <!-- Profile Statistics Container -->
                 <div class="dashboard-container">
                     <figure class="profile">
-                        <img src="https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="profile picture" data-profile-img>
+                        <img src="../frontend/images/dog-and-hitler.jpg" alt="profile picture" data-profile-img>
                         <div class="profile-data">
                             <figcaption data-profile-username>username<span data-profile-id>id: 521369</span></figcaption>
                             <div class="profile-buttons">

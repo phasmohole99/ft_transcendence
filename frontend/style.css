@@ -541,7 +541,7 @@ input[type="submit"]:active
   height: 40px;
   border-radius: 50%;
   border: 2px solid #0f0;
-  background: #222;
+  background: #222 ;
 }
 
 .main-content {
@@ -566,7 +566,7 @@ input[type="submit"]:active
   height: 150px;
   border-radius: 50%;
   border: 3px solid #0f0;
-  background: #222;
+  background: #222 ;
   position: relative;
   cursor: pointer;
   overflow: hidden;

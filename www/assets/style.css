@@ -771,7 +771,7 @@ select {
     height: 40px;
     border-radius: 50%;
     border: 2px solid #0f0;
-    background: #222;
+    background: #222 ;
 }
 
 .contact-info {
@@ -990,7 +990,7 @@ tr:last-child td {
     height: 40px;
     border-radius: 50%;
     border: 2px solid #0f0;
-    background: #222;
+    background: #222 ;
 }
 
 .player-info {

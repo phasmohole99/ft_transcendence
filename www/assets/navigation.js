@@ -83,3 +83,15 @@ class navigationHandler {
 
 
 const navigation = new navigationHandler();
+
+// Add event listener for logout
+document.getElementById('logout-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Clear any authentication data from localStorage
+    localStorage.removeItem('userAuthenticated');
+    // Add any other data that needs to be cleared
+    
+    // Redirect to login page
+    window.location.href = '/www/login.html';
+});
