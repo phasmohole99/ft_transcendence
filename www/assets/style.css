@@ -711,3 +711,359 @@ select {
 #settings .delete-btn {
     font-size: 1rem;
 }
+
+.chat-container {
+    background: #000;
+    color: #0f0;
+}
+.chat-layout {
+    padding-top: 4rem;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+}
+
+.contacts-panel {
+    background: rgba(34, 34, 34, 0.95);
+    border-right: 1px solid #0f0;
+    padding: 1rem;
+}
+
+.search-bar {
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.contacts-list {
+    overflow-y: auto;
+    height: calc(100vh - 180px);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.contact-item.active {
+    background: rgba(0, 255, 0, 0.2);
+}
+
+.contact-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #0f0;
+    background: #222;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-name {
+    color: #fff;
+    margin-bottom: 0.2rem;
+}
+
+.contact-status {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-panel {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 4rem);
+}
+
+.chat-header {
+    padding: 1rem 2rem;
+    background: rgba(34, 34, 34, 0.95);
+    border-bottom: 1px solid #0f0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message {
+    max-width: 70%;
+    padding: 1rem;
+    border-radius: 10px;
+    position: relative;
+}
+
+.message.sent {
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    align-self: flex-end;
+}
+
+.message.received {
+    background: rgba(34, 34, 34, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    align-self: flex-start;
+}
+
+.message-time {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.5rem;
+}
+
+.chat-input {
+    padding: 1rem 2rem;
+    background: rgba(34, 34, 34, 0.95);
+    border-top: 1px solid #0f0;
+    display: flex;
+    gap: 1rem;
+}
+
+.message-input {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    resize: none;
+}
+
+.send-button {
+    padding: 0 1.5rem;
+    background: #0f0;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.send-button:hover {
+    background: #00cc00;
+}
+
+@media (max-width: 768px) {
+    .chat-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .contacts-panel {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+
+
+.leaderboard {
+    background: #000;
+    color: #0f0;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.main-content {
+    flex: 1;
+    padding: 6rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.leaderboard-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.leaderboard-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+}
+
+.leaderboard-header p {
+    color: #fff;
+    opacity: 0.8;
+}
+
+.leaderboard-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.filter-button {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-button.active {
+    background: #0f0;
+    color: #000;
+}
+
+.filter-button:hover {
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.leaderboard-table {
+    background: rgba(34, 34, 34, 0.8);
+    border: 1px solid #0f0;
+    border-radius: 15px;
+    padding: 2rem;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    color: #0f0;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+    font-weight: normal;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.1);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.rank {
+    font-weight: bold;
+    color: #0f0;
+}
+
+.player-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.player-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #0f0;
+    background: #222;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-name {
+    color: #fff;
+    font-weight: bold;
+}
+
+.player-status {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.trend {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.trend-up {
+    color: #0f0;
+}
+
+.trend-down {
+    color: #ff4444;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-card {
+    background: rgba(34, 34, 34, 0.8);
+    border: 1px solid #0f0;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 2em;
+    color: #0f0;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #fff;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .leaderboard-filters {
+        flex-wrap: wrap;
+    }
+
+    .filter-button {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+

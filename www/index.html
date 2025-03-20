@@ -9,6 +9,11 @@
     <title>GamePad | Your Game Portal!</title>
     <script src="./assets/navigation.js" defer></script>
     <script src="./assets/script.js" defer></script>
+    <!-- <script>
+        if (!localStorage.getItem('userAuthenticated')) {
+            window.location.href = 'login.html';
+        }
+    </script> -->
 </head>
 <body>
     <!-- Background -->
@@ -146,6 +151,9 @@
                         <li data-section="chat">
                             <a href="/chat"><i class="fa-solid fa-message"></i>chat</a>
                         </li>
+                        <li data-section="leaderboard">
+                            <a href="/leaderboard"><i class="fa-solid fa-trophy"></i>leaderboard</a>
+                        </li>
                     </ul>
                 </section>
 
@@ -161,9 +169,6 @@
                         <li data-section="tictac">
                             <a href="/tictac"><i class="fa-solid fa-xmark"></i>tic tac toe</a>
                         </li>
-                        <li data-section="rps">
-                            <a href="/rps"><i class="fa-solid fa-hand-back-fist"></i>rockPaper</a>
-                        </li>
                     </ul>
                 </section>
 
@@ -171,6 +176,9 @@
 
                 <section class="nav-section">
                     <ul>
+                        <li data-section="about">
+                            <a href="/about"><i class="fa-solid fa-circle-info"></i>about us</a>
+                        </li>
                         <li data-section="settings">
                             <a href="/settings"><i class="fa-solid fa-gear"></i>settings</a>
                         </li>
@@ -210,7 +218,6 @@
                     <div class="cards-container">
                         <a href="/pong" class="card" data-game="pong"></a>
                         <a href="/tictac" class="card" data-game="tictac"></a>
-                        <a href="/rps" class="card" data-game="rps"></a>
                     </div>
                 </div>
 
@@ -484,6 +491,246 @@
                     </ul>
                 </div>
             </section>
+
+            <!-- About Us Section -->
+            <section id="about" class="section dashboard hidden" data-section="about">
+                <!-- Section Title -->
+                <header>
+                    <h1 class="header-title">About Us</h1>
+                    <p class="header-description">Learn more about GamePad and our mission.</p>
+                </header>
+
+                <!-- Team Section -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Meet Our Team</h2>
+                    <div class="cards-container">
+                        <div class="card">
+                            <img src="./assets/imgs/team1.jpg" alt="Team Member 1">
+                            <h3 class="card-title">John Doe</h3>
+                            <p>Lead Developer</p>
+                        </div>
+                        <div class="card">
+                            <img src="./assets/imgs/team2.jpg" alt="Team Member 2">
+                            <h3 class="card-title">Jane Smith</h3>
+                            <p>Game Designer</p>
+                        </div>
+                        <div class="card">
+                            <img src="./assets/imgs/team3.jpg" alt="Team Member 3">
+                            <h3 class="card-title">Mike Johnson</h3>
+                            <p>Community Manager</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="dashboard-container">
+                    <h2 class="container-title">Get in Touch</h2>
+                    <div class="cards-container">
+                        <div class="card">
+                            <i class="fa-solid fa-envelope card-icon"></i>
+                            <h3 class="card-title">Email</h3>
+                            <p>contact@gamepad.com</p>
+                        </div>
+                        <div class="card">
+                            <i class="fa-brands fa-twitter card-icon"></i>
+                            <h3 class="card-title">Twitter</h3>
+                            <p>@GamePadOfficial</p>
+                        </div>
+                        <div class="card">
+                            <i class="fa-brands fa-discord card-icon"></i>
+                            <h3 class="card-title">Discord</h3>
+                            <p>Join our community</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chat Section -->
+            <section id="chat" class="section dashboard hidden" data-section="chat">
+                <!-- Section Title -->
+                <div class="chat-container">
+                    <div id="header"></div>
+            
+                    <div class="chat-layout" style="margin-top: 20px;">
+                        <div class="contacts-panel">
+                            <div class="search-bar">
+                                <input type="text" class="search-input" placeholder="Search contacts...">
+                            </div>
+                            <div class="contacts-list">
+                                <div class="contact-item active">
+                                    <div class="contact-avatar"></div>
+                                    <div class="contact-info">
+                                        <div class="contact-name">Player1</div>
+                                        <div class="contact-status">Online</div>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-avatar"></div>
+                                    <div class="contact-info">
+                                        <div class="contact-name">Player2</div>
+                                        <div class="contact-status">Last seen 2h ago</div>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-avatar"></div>
+                                    <div class="contact-info">
+                                        <div class="contact-name">Player3</div>
+                                        <div class="contact-status">Online</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="chat-panel">
+                            <div class="chat-header">
+                                <div class="contact-avatar"></div>
+                                <div class="contact-info">
+                                    <div class="contact-name">Player1</div>
+                                    <div class="contact-status">Online</div>
+                                </div>
+                            </div>
+            
+                            <div class="chat-messages">
+                                <div class="message received">
+                                    <div class="message-content">Hey! Want to play a game?</div>
+                                    <div class="message-time">10:30 AM</div>
+                                </div>
+                                <div class="message sent">
+                                    <div class="message-content">Sure! I'm up for a challenge 🏓</div>
+                                    <div class="message-time">10:31 AM</div>
+                                </div>
+                                <div class="message received">
+                                    <div class="message-content">Great! I'll create a room.</div>
+                                    <div class="message-time">10:31 AM</div>
+                                </div>
+                            </div>
+            
+                            <div class="chat-input">
+                                <textarea class="message-input" placeholder="Type your message..." rows="1"></textarea>
+                                <button class="send-button">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="footer" style="padding-top: 20px;"></div>
+                </div>
+        
+            </section>
+
+
+            <!-- Leaderboard Section -->
+            <section id="leaderboard" class="section dashboard hidden" data-section="leaderboard">
+                <div class="leaderboard">
+        
+                    
+            
+                    <main class="main-content">
+                        <div class="leaderboard-header">
+                            <h1>Global Leaderboard</h1>
+                            <p>Top players ranked by performance</p>
+                        </div>
+            
+                        <div class="leaderboard-filters">
+                            <button class="filter-button active">All Time</button>
+                            <button class="filter-button">This Month</button>
+                            <button class="filter-button">This Week</button>
+                            <button class="filter-button">Today</button>
+                        </div>
+            
+                        <div class="leaderboard-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Player</th>
+                                        <th>Points</th>
+                                        <th>Wins</th>
+                                        <th>Losses</th>
+                                        <th>Win Rate</th>
+                                        <th>Trend</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="rank">#1</td>
+                                        <td>
+                                            <div class="player-cell">
+                                                <div class="player-avatar"></div>
+                                                <div class="player-info">
+                                                    <span class="player-name">Player1</span>
+                                                    <span class="player-status">Online</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>2500</td>
+                                        <td>150</td>
+                                        <td>30</td>
+                                        <td>83.3%</td>
+                                        <td>
+                                            <div class="trend trend-up">
+                                                <i class="fas fa-arrow-up"></i>
+                                                <span>2</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="rank">#2</td>
+                                        <td>
+                                            <div class="player-cell">
+                                                <div class="player-avatar"></div>
+                                                <div class="player-info">
+                                                    <span class="player-name">Player2</span>
+                                                    <span class="player-status">Offline</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>2350</td>
+                                        <td>140</td>
+                                        <td>35</td>
+                                        <td>80.0%</td>
+                                        <td>
+                                            <div class="trend trend-down">
+                                                <i class="fas fa-arrow-down"></i>
+                                                <span>1</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+                                </tbody>
+                            </table>
+                        </div>
+            
+                        <div class="stats">
+                            <div class="stat-card">
+                                <div class="stat-value">10,532</div>
+                                <div class="stat-label">Total Games Played</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">1,245</div>
+                                <div class="stat-label">Active Players</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">42</div>
+                                <div class="stat-label">Tournaments Completed</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">2,500</div>
+                                <div class="stat-label">Highest Score</div>
+                            </div>
+                        </div>
+                    </main>
+            
+            
+                    
+            
+                    <!-- Add Font Awesome for icons -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+       
+                </div>
+            </section>
+        </section>
+    </main>
+        </section>
+    </main>
 
         </section>
     </main>

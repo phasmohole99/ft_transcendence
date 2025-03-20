@@ -1,0 +1,315 @@
+<!doctype html>
+
+<html lang="en"> 
+
+ <head> 
+
+  <meta charset="UTF-8"> 
+
+  <title>Login/Signup - ft_transcendence</title> 
+
+  <link rel="stylesheet" href="../frontend/style.css"> 
+
+  <style>
+    .form-container {
+      position: relative;
+      width: 100%;
+      min-height: 450px; /* Ensure consistent height */
+    }
+
+    #loginForm, #signupForm {
+      transition: all 0.4s ease-in-out;
+      position: absolute;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      padding: 30px;
+      backdrop-filter: blur(15px);
+    }
+
+    .form h2 {
+      color: #0f0;
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 0.1em;
+      margin-bottom: 30px;
+    }
+
+    #signupForm {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(50px);
+    }
+
+    #loginForm.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50px);
+    }
+
+    #signupForm.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+
+    .inputBox {
+      position: relative;
+      width: 100%;
+      /* margin-top: 10px;
+      margin-bottom: 10px;  */
+      color:#fff ;
+    }
+
+    .inputBox input {
+      position: relative;
+      width: 100%;
+      padding: 15px 10px 10px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #1b1f23;
+      font-size: 1em;
+      letter-spacing: 0.05em;
+      z-index: 10;
+    }
+
+    .inputBox i {
+      position: absolute;
+      left: 0;
+      padding: 15px 10px;
+      font-style: normal;
+      color: #0f0;
+      transition: 0.5s;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .inputBox input:valid ~ i,
+    .inputBox input:focus ~ i {
+      color: #0f0;
+      transform: translateY(-20px);
+      font-size: 0.8em;
+      opacity: 1;
+    }
+
+    .inputBox input[type="submit"] {
+      background: #0f0;
+      color: #23242a;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 1.1em;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.5s;
+    }
+
+    .inputBox input[type="submit"]:hover {
+      background: #0f0;
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      margin: 25px 0;
+    }
+
+    .links a {
+      color: #8f8f8f;
+      text-decoration: none;
+      transition: 0.5s;
+    }
+
+    .links a:hover {
+      color: #0f0;
+    }
+
+    /* OAuth buttons styling */
+    .oauth-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .oauth-button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-42 {
+      background: #0f0;
+      color: #1b1f23;
+    }
+
+    .btn-github {
+      background: #24292e;
+      color: white;
+    }
+
+    .btn-42:hover {
+      background: #00ff00;
+      opacity: 0.9;
+    }
+
+    .btn-github:hover {
+      background: #1b1f23;
+    }
+  </style>
+
+ </head> 
+
+ <body> <!-- partial:index.partial.html --> 
+
+  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+
+   <div class="signin"> 
+
+    <div class="content"> 
+
+     <div class="form-container">
+
+      <!-- Login Form -->
+      <div class="form" id="loginForm"> 
+
+       <h2>Sign In</h2> 
+
+       <div class="inputBox"> 
+
+        <input type="text" required id="loginUsername"> Username or Email
+
+       </div> 
+
+       <div class="inputBox"> 
+
+        <input type="password" required id="loginPassword" > Password
+
+       </div> 
+
+       <div class="links"> <a href="#">Forgot Password</a>
+         <a href="#" onclick="toggleForm('signup'); return false;">Sign Up</a> 
+
+       </div> 
+
+       <div class="inputBox"> 
+
+        <input type="submit" value="Login" onclick="handleLogin()"> 
+
+       </div> 
+
+       <div class="oauth-buttons">
+         <button class="oauth-button btn-42" onclick="handle42Login()">
+           Login with 42
+         </button>
+         <button class="oauth-button btn-github" onclick="handleGithubLogin()">
+           Login with GitHub
+         </button>
+       </div>
+       
+      </div> 
+
+      <!-- Signup Form -->
+      <div class="form" id="signupForm">
+        <h2>Sign Up</h2>
+        <div class="inputBox"> 
+          <input type="text" required id="signupUsername"> 
+          Username
+        </div>
+        <div class="inputBox"> 
+          <input type="email" required id="signupEmail"> 
+          Email
+        </div>  
+        <div class="inputBox"> 
+          <input type="password" required id="signupPassword"> 
+          Password
+        </div>
+        <div class="inputBox"> 
+          <input type="password" required id="confirmPassword"> 
+          Confirm Password
+        </div>
+        <div class="links"> 
+          <a href="#" onclick="toggleForm('login'); return false;">Back to Login</a>
+        </div>
+        <div class="inputBox"> 
+          <input type="submit" value="Create Account" onclick="handleSignup()"> 
+        </div>
+      </div>
+     </div>
+
+    </div>
+
+    </div>
+
+   
+  </section> <!-- partial --> 
+
+
+  <script>
+
+    function toggleForm(formType) {
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+      
+      if (formType === 'login') {
+        loginForm.classList.remove('hidden');
+        signupForm.classList.remove('visible');
+      } else {
+        loginForm.classList.add('hidden');
+        signupForm.classList.add('visible');
+      }
+    }
+
+    function handleLogin() {
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      if (username && password) {
+        localStorage.setItem('user', JSON.stringify({
+          username: username,
+          isLoggedIn: true
+        }));
+        
+        window.location.href = 'index.html';
+      } else {
+        alert('Please enter both username and password');
+      }
+    }
+
+    function handleSignup() {
+      const username = document.getElementById('signupUsername').value;
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+      const confirmPass = document.getElementById('confirmPassword').value;
+
+      if (!username || !email || !password || !confirmPass) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      if (password !== confirmPass) {
+        alert('Passwords do not match!');
+        return;
+      }
+
+      // Here you would typically make an API call to create the account
+      alert('Account created successfully!');
+      toggleForm('login');
+    }
+
+    function handle42Login() {
+      alert('42 login will be implemented');
+    }
+
+    function handleGithubLogin() {
+      alert('GitHub login will be implemented');
+    }
+  </script>
+
+ </body>
+
+</html>

@@ -65,15 +65,13 @@ section span:hover
 section .signin
 {
   position: absolute;
-  width: 400px;
-  background: #222;  
+  width: 400px; 
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
   border-radius: 4px;
-  box-shadow: 0 15px 35px rgba(0,0,0,9);
 }
 section .signin .content 
 {
