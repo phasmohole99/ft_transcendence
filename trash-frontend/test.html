@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .matrix-background {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+            flex-wrap: wrap;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .matrix-background::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#000,#0f0,#000);
+            animation: animate 5s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        .matrix-square {
+            position: relative;
+            display: block;
+            width: calc(6.25vw - 2px);
+            height: calc(6.25vw - 2px);
+            background: #18181878;
+            z-index: 2;
+            transition: 1.5s;
+        }
+
+        .matrix-square:hover {
+            background: #0f0;
+            transition: 0s;
+        }
+
+        @media (max-width: 900px) {
+            .matrix-square {
+                width: calc(10vw - 2px);
+                height: calc(10vw - 2px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .matrix-square {
+                width: calc(20vw - 2px);
+                height: calc(20vw - 2px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-background">
+        <script>
+            // Create matrix background squares
+            const background = document.querySelector('.matrix-background');
+            const squareCount = 400; // Adjust this number to control density
+
+            for (let i = 0; i < squareCount; i++) {
+                const square = document.createElement('div');
+                square.className = 'matrix-square';
+                background.appendChild(square);
+            }
+        </script>
+    </div>
+</body>
+</html>
