@@ -57,9 +57,9 @@ This is a full-stack web development project designed to build a gaming platform
 - [ ] Chat Page
     - [ ] List of Friends
     - [ ] Chat Box to Send Messages
-- [ ] ping pong Page
-- [ ] Tic Tac Toe Page
-- [ ] RPS Page
+- [x] ping pong Page
+- [x] Tic Tac Toe Page
+- [x] RPS Page
 - [X] Single Page Navigation Using JavaScript
 - [ ] Handle Login Form JavaScript
 - [ ] Handle Signup Form JavaScript
