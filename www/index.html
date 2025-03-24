@@ -86,6 +86,99 @@
                     height: calc(20vw - 2px);
                 }
             }
+
+            .game-section {
+                display: block;
+            }
+
+            .game-section.hidden {
+                display: none;
+            }
+
+            /* Mobile-friendly form styles */
+            .mobile-friendly {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            .mobile-form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-input {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #333;
+                border-radius: 4px;
+                background: #18181878;
+                color: #fff;
+            }
+
+            .form-row {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+
+            .half-width {
+                flex: 1;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .cards-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .form-row {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                .half-width {
+                    width: 100%;
+                }
+
+                .card {
+                    padding: 15px;
+                }
+
+                .form-group {
+                    margin-bottom: 10px;
+                }
+
+                textarea.form-input {
+                    min-height: 80px;
+                }
+            }
+
+            /* Additional mobile styles */
+            @media (max-width: 480px) {
+                .dashboard-container {
+                    padding: 10px;
+                }
+
+                .container-title {
+                    font-size: 1.2em;
+                    margin-bottom: 15px;
+                }
+
+                .card-title {
+                    font-size: 1em;
+                }
+
+                .btn {
+                    width: 100%;
+                    padding: 12px;
+                    font-size: 14px;
+                }
+            }
         </style>
     <!-- <script>
         if (!localStorage.getItem('userAuthenticated')) {
@@ -216,7 +309,7 @@
         </section>
 
         <!-- Dashboard Sections -->
-        <section id="dash-sections" class="section hidden">
+        <section id="dash-sections" class="section">
 
             <!-- Dashboard Navigation -->
             <nav id="navigation" style="background: #18181878; color: #fff; border: #000 solid 5px;">
@@ -258,9 +351,6 @@
                     <ul>
                         <li data-section="pong">
                             <a href="/pong"><i class="fa-solid fa-table-tennis-paddle-ball"></i>ping pong</a>
-                        </li>
-                        <li data-section="pingpongsolo">
-                            <a href="/pingpongsolo"><i class="fa-solid fa-xmark"></i>solo play</a>
                         </li>
                         <li data-section="tictac">
                             <a href="/tictac"><i class="fa-solid fa-xmark"></i>tic tac toe</a>
@@ -491,102 +581,104 @@
                 </div>
             </section>
 
-            <!-- Settings Section -->
-            <section id="settings" class="section dashboard hidden" data-section="settings">
 
-                <!-- Section Title -->
-                <header>
-                    <h1 class="header-title">Settings</h1>
-                    <p class="header-description">Manage your account preferences and security settings.</p>
-                </header>
+<!-- Settings Section -->
+<section id="settings" class="section dashboard hidden" data-section="settings">
 
-                <!-- Profile Settings Container -->
-                <div class="dashboard-container">
-                    <h2 class="container-title">Profile settings</h2>
-                    <form id="profile-settings-form">
-                        <div class="form-options">
-                            <div class="user-settings">
-                                <label for="settings-username">Username</label>
-                                <input type="text" id="settings-username" name="settings-username" placeholder="Username" minlength="5" maxlength="15" value="username" required>
+    <!-- Section Title -->
+    <header>
+        <h1 class="header-title">Settings</h1>
+        <p class="header-description">Manage your account preferences and security settings.</p>
+    </header>
 
-                                <label for="settings-Email">Email</label>
-                                <input type="email" id="settings-Email" name="settings-Email" placeholder="Email address" value="username@gmail.com" required>
+    <!-- Profile Settings Container -->
+    <div class="dashboard-container">
+        <h2 class="container-title">Profile settings</h2>
+        <form id="profile-settings-form">
+            <div class="form-options">
+                <div class="user-settings">
+                    <label for="settings-username">Username</label>
+                    <input type="text" id="settings-username" name="settings-username" placeholder="Username" minlength="5" maxlength="15" value="username" required>
 
-                                <label for="settings-2fa">Enable-2FA</label>
-                                <label class="switch" for="settings-2fa">
-                                    <input type="checkbox" id="settings-2fa" name="settings-2fa">
-                                    <div class="slider"></div>
-                                </label>
-                            </div>
+                    <label for="settings-Email">Email</label>
+                    <input type="email" id="settings-Email" name="settings-Email" placeholder="Email address" value="username@gmail.com" required>
 
-                            <!-- Profile Picture Setting -->
-                            <input type="file" id="settings-picture" name="settings-picture" accept="image/*">
-                            <label for="settings-picture">
-                                <figure class="profile">
-                                    <img src="./assets/imgs/GLovOmnXMAAlhjQ.jpg" alt="profile picture" data-profile-img>
-                                    <label for="settings-picture" class="btn">
-                                        <i class="fa-regular fa-pen-to-square"></i>Edit
-                                    </label>
-                                </figure>
-                            </label>
+                    <label for="settings-2fa">Enable-2FA</label>
+                    <label class="switch" for="settings-2fa">
+                        <input type="checkbox" id="settings-2fa" name="settings-2fa">
+                        <div class="slider"></div>
+                    </label>
+                </div>
+
+                <!-- Profile Picture Setting -->
+                <input type="file" id="settings-picture" name="settings-picture" accept="image/*">
+                <label for="settings-picture">
+                    <figure class="profile">
+                        <img src="./assets/imgs/GLovOmnXMAAlhjQ.jpg" alt="profile picture" data-profile-img>
+                        <label for="settings-picture" class="btn">
+                            <i class="fa-regular fa-pen-to-square"></i>Edit
+                        </label>
+                    </figure>
+                </label>
+            </div>
+            <input type="submit" class="btn" value="update profile settings">
+        </form>
+    </div>
+
+    <!-- Privacy Settings Container -->
+    <div class="dashboard-container">
+        <h2 class="container-title">Privacy settings</h2>
+        <form id="privacy-settings-form">
+            <!-- Change Password Setting -->
+            <div class="cards-container">
+                <div class="card">
+                    <h3 class="card-title">update password</h3>
+                    <input type="password" id="current-password" name="current-password" placeholder="Current Password">
+                    <input type="password" id="new-password" name="new-password" placeholder="New Password">
+                </div>
+                <!-- Change Account Visibility Settings -->
+                <div class="card">
+                    <h3 class="card-title">account visibility</h3>
+                    <div>
+                        <div>
+                            <label for="profile-visibility">Profile Visibility</label>
+                            <select id="profile-visibility" name="profile-visibility">
+                                <option value="public">Public</option>
+                                <option value="friends-only">Friends Only</option>
+                                <option value="private">Private</option>
+                            </select>
                         </div>
-                        <input type="submit" class="btn" value="update profile settings">
-                    </form>
-                </div>
-
-                <!-- Privacy Settings Container -->
-                <div class="dashboard-container">
-                    <h2 class="container-title">Privacy settings</h2>
-                    <form id="privacy-settings-form">
-                        <!-- Change Password Setting -->
-                        <div class="cards-container">
-                            <div class="card">
-                                <h3 class="card-title">update password</h3>
-                                <input type="password" id="current-password" name="current-password" placeholder="Current Password">
-                                <input type="password" id="new-password" name="new-password" placeholder="New Password">
-                            </div>
-                            <!-- Change Account Visibility Settings -->
-                            <div class="card">
-                                <h3 class="card-title">account visibility</h3>
-                                <div>
-                                    <div>
-                                        <label for="profile-visibility">Profile Visibility</label>
-                                        <select id="profile-visibility" name="profile-visibility">
-                                            <option value="public">Public</option>
-                                            <option value="friends-only">Friends Only</option>
-                                            <option value="private">Private</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label for="activity-visibility">Activity Visibility</label>
-                                        <select id="activity-visibility" name="activity-visibility">
-                                            <option value="public">Public</option>
-                                            <option value="friends-only">Friends Only</option>
-                                            <option value="private">Private</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                        <div>
+                            <label for="activity-visibility">Activity Visibility</label>
+                            <select id="activity-visibility" name="activity-visibility">
+                                <option value="public">Public</option>
+                                <option value="friends-only">Friends Only</option>
+                                <option value="private">Private</option>
+                            </select>
                         </div>
-                        <input type="submit" class="btn" value="update privacy settings">
-                    </form>
+                    </div>
                 </div>
+            </div>
+            <input type="submit" class="btn" value="update privacy settings">
+        </form>
+    </div>
 
-                <!-- Danger Settings Container -->
-                <div class="dashboard-container">
-                    <h2 class="container-title">Danger zone</h2>
-                    <ul class="activity-list">
-                        <li>
-                            <p><strong>delete account</strong><br>This action is permanent and cannot be undone.</p>
-                            <button id="delete-account-btn" class="btn delete-btn">Delete</button>
-                        </li>
-                        <li>
-                            <p><strong>delete history</strong><br>This will permanently remove your history. This action cannot be undone.</p>
-                            <button id="delete-history-btn" class="btn delete-btn">Delete</button>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+    <!-- Danger Settings Container -->
+    <div class="dashboard-container">
+        <h2 class="container-title">Danger zone</h2>
+        <ul class="activity-list">
+            <li>
+                <p><strong>delete account</strong><br>This action is permanent and cannot be undone.</p>
+                <button id="delete-account-btn" class="btn delete-btn">Delete</button>
+            </li>
+            <li>
+                <p><strong>delete history</strong><br>This will permanently remove your history. This action cannot be undone.</p>
+                <button id="delete-history-btn" class="btn delete-btn">Delete</button>
+            </li>
+        </ul>
+    </div>
+</section>
+
 
             <!-- About Us Section -->
             <section id="about" class="section dashboard hidden" data-section="about">
@@ -1016,40 +1108,121 @@
                 </div>
 
                 <!-- Create Tournament Container -->
-                <div class="dashboard-container">
-                    <h2 class="container-title">Create Tournament</h2>
-                    <form id="create-tournament-form">
-                        <div class="form-options">
-                            <div>
-                                <label for="tournament-name">Tournament Name</label>
-                                <input type="text" id="tournament-name" name="tournament-name" placeholder="Enter tournament name" required>
+                <div class="admin-card mobile-friendly">
+                    <h2><i class="fas fa-trophy"></i> Create Tournament</h2>
+                    <form class="admin-form mobile-form">
+                        <div class="form-group">
+                            <label for="tournamentName">Tournament Name</label>
+                            <input type="text" 
+                                   id="tournamentName" 
+                                   class="form-input" 
+                                   placeholder="Weekly Tournament">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group half-width">
+                                <label for="startDate">Start Date</label>
+                                <input type="date" 
+                                       id="startDate" 
+                                       class="form-input">
                             </div>
-                            <div>
-                                <label for="game-type">Game Type</label>
-                                <select id="game-type" name="game-type" required>
+                            <div class="form-group half-width">
+                                <label for="startTime">Start Time</label>
+                                <input type="time" 
+                                       id="startTime" 
+                                       class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half-width">
+                                <label for="maxPlayers">Max Players</label>
+                                <select id="maxPlayers" class="form-input">
+                                    <option value="4">4 Players</option>
+                                    <option value="8">8 Players</option>
+                                    <option value="16">16 Players</option>
+                                </select>
+                            </div>
+                            <div class="form-group half-width">
+                                <label for="gameType">Game Type</label>
+                                <select id="gameType" class="form-input">
                                     <option value="pong">Ping Pong</option>
                                     <option value="tictac">Tic Tac Toe</option>
                                 </select>
                             </div>
-                            <div>
-                                <label for="max-players">Maximum Players</label>
-                                <select id="max-players" name="max-players" required>
-                                    <option value="4">4 Players</option>
-                                    <option value="8">8 Players</option>
-                                    <option value="16">16 Players</option>
-                                    <option value="32">32 Players</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="start-time">Start Time</label>
-                                <input type="datetime-local" id="start-time" name="start-time" required>
-                            </div>
                         </div>
-                        <input type="submit" class="btn" value="Create Tournament">
+
+                        <button type="submit" class="create-tournament-btn">
+                            <i class="fas fa-plus"></i> Create Tournament
+                        </button>
                     </form>
+                </div>
+            </section>
+
+            
+            <!-- Game Sections -->
+            <section id="pong" class="section" data-section="pong">
+                <h2>Ping Pong</h2>
+                <div class="game-container">
+                    <canvas id="pingPongCanvas"></canvas>
+                    <div class="game-controls">
+                        <button id="startPingPong">Start Game</button>
+                        <div class="score-display">
+                            <span>Score: <span id="pingPongScore">0</span></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tictac" class="section" data-section="tictac">
+                <h2>Tic Tac Toe</h2>
+                <div class="game-container">
+                    <div class="game-board" id="ticTacToeBoard">
+                        <div class="cell" data-index="0"></div>
+                        <div class="cell" data-index="1"></div>
+                        <div class="cell" data-index="2"></div>
+                        <div class="cell" data-index="3"></div>
+                        <div class="cell" data-index="4"></div>
+                        <div class="cell" data-index="5"></div>
+                        <div class="cell" data-index="6"></div>
+                        <div class="cell" data-index="7"></div>
+                        <div class="cell" data-index="8"></div>
+                    </div>
+                    <div class="game-controls">
+                        <button id="resetTicTacToe">Reset Game</button>
+                        <div class="status" id="gameStatus"></div>
+                    </div>
                 </div>
             </section>
         </section>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('li[data-section] a');
+            
+            // Add click event listener to each link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default link behavior
+                    
+                    // Get the section id from the parent li's data-section attribute
+                    const sectionId = this.parentElement.getAttribute('data-section');
+                    
+                    // Hide all game sections
+                    document.querySelectorAll('.game-section').forEach(section => {
+                        section.classList.add('hidden');
+                    });
+                    
+                    // Show the selected section
+                    const targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

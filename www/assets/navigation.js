@@ -127,9 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <li data-section="pong">
                     <a href="#" data-href="/pong"><i class="fa-solid fa-table-tennis-paddle-ball"></i>Ping Pong</a>
                 </li>
-                <li data-section="pingpongsolo">
-                    <a href="#" data-href="/pingpongsolo"><i class="fa-solid fa-xmark"></i>Solo Play</a>
-                </li>
                 <li data-section="tictac">
                     <a href="#" data-href="/tictac"><i class="fa-solid fa-xmark"></i>Tic Tac Toe</a>
                 </li>
@@ -138,6 +135,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="menu-section settings-section">
             <h3>Settings</h3>
             <ul>
+                <li data-section="profile">
+                    <a href="#" data-href="/profile"><i class="fa-solid fa-circle-info"></i>Profile</a>
+                </li>
                 <li data-section="about">
                     <a href="#" data-href="/about"><i class="fa-solid fa-circle-info"></i>About Us</a>
                 </li>
