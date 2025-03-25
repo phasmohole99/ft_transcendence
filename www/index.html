@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="shortcut icon" href="./assets/imgs/icon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>GamePad | Your Game Portal!</title>
     <script src="./assets/navigation.js" defer></script>
@@ -355,6 +356,9 @@
                         <li data-section="tictac">
                             <a href="/tictac"><i class="fa-solid fa-xmark"></i>tic tac toe</a>
                         </li>
+                        <li data-section="rps">
+                            <a href="/rps"><i class="fa-solid fa-xmark"></i>Rock Paper</a>
+                        </li>
                     </ul>
                 </section>
 
@@ -691,24 +695,54 @@
                 <!-- Team Section -->
                 <div class="dashboard-container">
                     <h2 class="container-title">Meet Our Team</h2>
-                    <div class="cards-container">
-                        <div class="card">
-                            <img src="./assets/imgs/GLovOmnXMAAlhjQ.jpg" alt="Team Member 1">
-                            <h3 class="card-title">John Doe</h3>
-                            <p>Lead Developer</p>
+                    <div class="cards-container" style="display: flex; justify-content: space-between; gap: 20px;">
+                        <div class="card" style="flex: 1; width: 250px;">
+                            <img src="./assets/imgs/GLovOmnXMAAlhjQ.jpg" alt="Amine" style="width: 100%; height: auto; border-radius: 8px;">
+                            <h3 class="card-title">Amine Ait Ouazghour</h3>
+                            <p>Full Stack Developer</p>
                         </div>
-                        <div class="card">
-                            <img src="./assets/imgs/GLovOmnXMAAlhjQ.jpg" alt="Team Member 2">
-                            <h3 class="card-title">Jane Smith</h3>
-                            <p>Game Designer</p>
+                        <div class="card" style="flex: 1; width: 250px;">
+                            <img src="./assets/imgs/GLovOmnXMAAlhjQ.jpg" alt="Hamza" style="width: 100%; height: auto; border-radius: 8px;">
+                            <h3 class="card-title">Hamza Ait Ouazghour</h3>
+                            <p>Game Developer</p>
                         </div>
-                        <div class="card">
-                            <img src="./assets/imgs/GLovOmnXMAAlhjQ.jpg" alt="Team Member 3">
-                            <h3 class="card-title">Mike Johnson</h3>
-                            <p>Community Manager</p>
+                        <div class="card" style="flex: 1; width: 250px;">
+                            <img src="./assets/imgs/GLovOmnXMAAlhjQ.jpg" alt="Yassine" style="width: 100%; height: auto; border-radius: 8px;">
+                            <h3 class="card-title">Yassine Ait Ouazghour</h3>
+                            <p>UI/UX Designer</p>
+                        </div>
+                        <div class="card" style="flex: 1; width: 250px;">
+                            <img src="./assets/imgs/GLovOmnXMAAlhjQ.jpg" alt="Ayoub" style="width: 100%; height: auto; border-radius: 8px;">
+                            <h3 class="card-title">Ayoub Ait Ouazghour</h3>
+                            <p>Backend Developer</p>
                         </div>
                     </div>
                 </div>
+
+                <style>
+                    @media (max-width: 768px) {
+                        .cards-container {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+
+                        .cards-container .card {
+                            width: 100% !important;
+                            max-width: 300px;
+                            margin-bottom: 20px;
+                        }
+
+                        .card-title {
+                            font-size: 1.2em;
+                            margin: 10px 0;
+                        }
+
+                        .card p {
+                            font-size: 1em;
+                            margin-bottom: 10px;
+                        }
+                    }
+                </style>
 
                 <!-- Contact Section -->
                 <div class="dashboard-container">
@@ -1162,36 +1196,20 @@
             
             <!-- Game Sections -->
             <section id="pong" class="section" data-section="pong">
-                <h2>Ping Pong</h2>
                 <div class="game-container">
-                    <canvas id="pingPongCanvas"></canvas>
-                    <div class="game-controls">
-                        <button id="startPingPong">Start Game</button>
-                        <div class="score-display">
-                            <span>Score: <span id="pingPongScore">0</span></span>
-                        </div>
-                    </div>
+                    <iframe src="../game/ping.html" width="100%" height="900px" frameborder="0"></iframe>
                 </div>
             </section>
 
             <section id="tictac" class="section" data-section="tictac">
-                <h2>Tic Tac Toe</h2>
                 <div class="game-container">
-                    <div class="game-board" id="ticTacToeBoard">
-                        <div class="cell" data-index="0"></div>
-                        <div class="cell" data-index="1"></div>
-                        <div class="cell" data-index="2"></div>
-                        <div class="cell" data-index="3"></div>
-                        <div class="cell" data-index="4"></div>
-                        <div class="cell" data-index="5"></div>
-                        <div class="cell" data-index="6"></div>
-                        <div class="cell" data-index="7"></div>
-                        <div class="cell" data-index="8"></div>
-                    </div>
-                    <div class="game-controls">
-                        <button id="resetTicTacToe">Reset Game</button>
-                        <div class="status" id="gameStatus"></div>
-                    </div>
+                    <iframe src="../game/TicTacToe.html" style="width: 850px; height: 900px;" frameborder="0"></iframe>
+                </div>
+            </section>
+
+            <section id="rps" class="section" data-section="rps">
+                <div class="game-container">
+                    <iframe src="../game/rps.html" style="width: 850px; height: 900px;" frameborder="0"></iframe>
                 </div>
             </section>
         </section>

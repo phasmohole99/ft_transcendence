@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="assets/gamestyle.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center all content horizontally */
+            justify-content: center; /* Center all content vertically */
+            height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+            background: none; /* Optional: Set background color */
+            color: #0f0; /* Set text color */
+        }
+
+        h1 {
+            text-align: center; /* Center the title */
+            margin-bottom: 10px; /* Space below the title */
+        }
+
+        .button-container {
+            margin-bottom: 10px; /* Space below the buttons */
+        }
+
+        .rps-container {
+            text-align: center; /* Center all text in the container */
+            color: #0f0; /* Set text color */
+        }
+
+        .rps-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Adjust spacing between buttons */
+            margin-top: 20px; /* Add space above the buttons */
+        }
+
+        .rps-button img {
+            width: 80px; /* Set a fixed width for the images */
+            height: 80px; /* Set a fixed height for the images */
+            object-fit: contain; /* Maintain aspect ratio */
+        }
+
+        #rps-message {
+            margin-top: 30px; /* Increase space above the message */
+            font-size: 1.2em; /* Increase font size for better visibility */
+        }
+
+        .btn {
+            margin: 5px; /* Space around buttons */
+            padding: 10px 20px; /* Padding for buttons */
+            background: none; /* Button background color */
+            color: #0f0; /* Button text color */
+            border: none; /* Remove border */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+        /* Settings Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px; /* Location of the box */
+        }
+
+        .modal-content {
+            background-color: #181818a8;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #0f0;
+            width: 300px; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <div class="button-container">
+        <button id="reset" class="btn">
+            <span>Reset Game</span>
+            <span>Reset Game</span>
+        </button>
+        <button id="nextPlayer" class="btn">
+            <span>Next Player</span>
+            <span>Next Player</span>
+        </button>
+        <button id="settings" class="btn">
+            <span>Settings</span>
+            <span>Settings</span>
+        </button>
+    </div>
+    <div class="rps-container">
+        <div id="rps-message"></div>
+        <div class="rps-buttons">
+            <button class="rps-button" data-choice="rock">
+                <img src="assets/rock.png" alt="Rock" />
+            </button>
+            <button class="rps-button" data-choice="paper">
+                <img src="assets/paper.png" alt="Paper" />
+            </button>
+            <button class="rps-button" data-choice="scissors">
+                <img src="assets/scissors.png" alt="Scissors" />
+            </button>
+        </div>
+    </div>
+    <a href="TicTacToe.html" class="btn" style="margin-top: 20px;">
+        <span>Tic Tac Toe</span>
+        <span>Tic Tac Toe</span>
+    </a>
+    <a href="ping.html" class="btn">
+        <span>Ping Pong</span>
+        <span>Ping Pong</span>
+    </a>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <label for="mode">Game Mode:</label>
+            <select id="mode">
+                <option value="player">Player vs Player</option>
+                <option value="ai">Player vs AI</option>
+            </select><br><br>
+            <button id="saveSettings" class="btn">
+                <span>Save</span>
+                <span>Save</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="rps.js"></script>
+</body>
+</html>

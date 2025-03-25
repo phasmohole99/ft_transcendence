@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="assets/gamestyle.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center all content horizontally */
+            justify-content: center; /* Center all content vertically */
+            height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+            background: none; /* Optional: Set background color */
+            color: #0f0; /* Set text color */
+        }
+
+        h1 {
+            text-align: center; /* Center the title */
+            margin-bottom: 20px; /* Space below the title */
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px); /* 3 columns for the Tic Tac Toe grid */
+            gap: 10px; /* Space between grid items */
+            margin-bottom: 20px; /* Space below the game board */
+        }
+
+        .cell {
+            width: 100px; /* Width of each cell */
+            height: 100px; /* Height of each cell */
+            display: flex;
+            align-items: center; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+            font-size: 2em; /* Font size for X and O */
+            background-color: #181818a8; /* Background color for cells */
+            color: #0f0; /* Text color for X and O */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        .btn {
+            /* Space above buttons */
+            padding: 10px 20px; /* Padding for buttons */
+            background: none !important; /* Button background color */
+            color: #0f0; /* Button text color */
+            border: none; /* Remove border */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        /* Settings Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px; /* Location of the box */
+        }
+
+        .modal-content {
+            background: none;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #0f0;
+            width: 300px; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div class="game-board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+    </div>
+    <div class="button-container">
+        <button id="reset" class="custom-btn btn-12">
+            <span>Reset Game</span>
+            <span>Reset Game</span>
+        </button>
+        <button id="settings" class="custom-btn btn-12">
+            <span>Settings</span>
+            <span>Settings</span>
+        </button>
+
+        <!-- <button id="reset" class="btn">Reset Game</button>
+        <button id="settings" class="btn">Settings</button> -->
+    </div>
+    <a href="rps.html" class="custom-btn btn-12" style="margin-top: 40px;">
+        <span>Rock Paper</span><span>Rock Paper</span>
+    </a>
+    <!-- <button class="custom-btn btn-12"><span>Save</span><span>Read More</span></button> -->
+
+    <!-- <a href="ping.html" class="btn">Go to Ping Pong</a> -->
+    <a href="ping.html" class="custom-btn btn-12">
+        <span>Ping Pong</span>
+        <span>Ping Pong</span>
+    </a>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <label for="mode">Game Mode:</label>
+            <select id="mode">
+                <option value="player">Player vs Player</option>
+                <option value="ai">Player vs AI</option>
+            </select><br><br>
+            <button class="custom-btn btn-12"><span>Save</span><span>Read More</span></button>
+            <!-- <button id="saveSettings" class="btn">Save</button> -->
+        </div>
+    </div>
+
+    <script src="tictactoe.js"></script>
+</body>
+</html>

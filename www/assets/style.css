@@ -1159,14 +1159,14 @@ tbody tr:hover {
 
 .stats-overview .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1.5rem;
 }
 
 .stat-card {
     background: #181818a8;
     border-radius: 15px;
-    padding: 1.5rem;
+    /* padding: 1.5rem; */
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -2028,7 +2028,7 @@ tbody tr:hover {
 }
 
 .game-container {
-    background: rgba(34, 34, 34, 0.8);
+    background: #18181878;
     border: none;
     border-radius: 15px;
     padding: 1.5rem;

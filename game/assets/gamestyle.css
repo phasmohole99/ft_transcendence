@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background: #181818a8; */
+}
+
+section {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: #0f0;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    /* background-color: #181818; */
+    background: none;
+    border: 2px solid #0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cell:hover {
+    background-color: #0f0;
+}
+
+/* Common button styles for all game buttons */
+.btn, .btn-12, .game-btn {
+    position: relative;
+    right: 20px;
+    bottom: 20px;
+    border: none;
+    box-shadow: none;
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    perspective: 230px;
+    margin-top: 20px;
+}
+
+.btn span, .btn-12 span, .game-btn span {
+    background: linear-gradient(0deg, #0f0 0%, #00cc00 100%);
+    display: block;
+    position: absolute;
+    width: 130px;
+    height: 40px;
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+                7px 7px 20px 0px rgba(0,0,0,.1),
+                4px 4px 5px 0px rgba(0,0,0,.1);
+    border-radius: 5px;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+    transition: all .3s;
+    color: #181818;
+}
+
+.btn span:nth-child(1), .btn-12 span:nth-child(1), .game-btn span:nth-child(1) {
+    box-shadow: -7px -7px 20px 0px #181818a8,
+               -4px -4px 5px 0px #181818a8,
+               7px 7px 20px 0px #181818,
+               4px 4px 5px 0px #181818;
+    transform: rotateX(90deg);
+    transform-origin: 50% 50% -20px;
+}
+
+.btn span:nth-child(2), .btn-12 span:nth-child(2), .game-btn span:nth-child(2) {
+    transform: rotateX(0deg);
+    transform-origin: 50% 50% -20px;
+}
+
+.btn:hover span:nth-child(1), .btn-12:hover span:nth-child(1), .game-btn:hover span:nth-child(1) {
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+               7px 7px 20px 0px #181818a8,
+               4px 4px 5px 0px #181818a8;
+    transform: rotateX(0deg);
+}
+
+.btn:hover span:nth-child(2), .btn-12:hover span:nth-child(2), .game-btn:hover span:nth-child(2) {
+    /* box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+               7px 7px 20px 0px #181818a8,
+               4px 4px 5px 0px #181818a8; */
+    color: transparent;
+    transform: rotateX(-90deg);
+}
+
+/* Remove old button styles that might conflict */
+.btn {
+    padding: initial;
+    background: initial;
+    color: initial;
+    border: initial;
+    border-radius: initial;
+    cursor: pointer;
+    transition: initial;
+}
+
+.btn:hover {
+    background: initial;
+}
+
+/* Add this to your existing gamestyle.css */
+
+body {
+    color: #0f0; /* Change the default text color to green */
+}
+
+h1, h2 {
+    color: #0f0; /* Header colors */
+}
+
+.score {
+    color: #0f0; /* Score text color */
+}
+
+#message {
+    color: #0f0; /* Message text color */
+}
+
+.rps-button img {
+    width: 80px; /* Set a fixed width for the images */
+    height: 80px; /* Set a fixed height for the images */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+@-webkit-keyframes shiny-btn1 {
+    0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+}
+
+/* 12 */
+.btn-12 {
+    margin-top: 20px;
+    position: relative;
+    right: 20px;
+    bottom: 20px;
+    border: none;
+    box-shadow: none;
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    perspective: 230px;
+}
+
+.btn-12 span {
+    background: linear-gradient(0deg, #0f0 0%, #00cc00 100%);
+    display: block;
+    position: absolute;
+    width: 130px;
+    height: 40px;
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+                7px 7px 20px 0px rgba(0,0,0,.1),
+                4px 4px 5px 0px rgba(0,0,0,.1);
+    border-radius: 5px;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+    transition: all .3s;
+    color: #181818;
+}
+
+.btn-12 span:nth-child(1) {
+    box-shadow: -7px -7px 20px 0px #181818a8,
+               -4px -4px 5px 0px #181818a8,
+               7px 7px 20px 0px #181818,
+               4px 4px 5px 0px #181818;
+    transform: rotateX(90deg);
+    transform-origin: 50% 50% -20px;
+}
+
+.btn-12 span:nth-child(2) {
+    transform: rotateX(0deg);
+    transform-origin: 50% 50% -20px;
+}
+
+.btn-12:hover span:nth-child(1) {
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+               7px 7px 20px 0px #181818a8,
+               4px 4px 5px 0px #181818a8;
+    transform: rotateX(0deg);
+}
+
+.btn-12:hover span:nth-child(2) {
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+               7px 7px 20px 0px #181818a8,
+               4px 4px 5px 0px #181818a8;
+    color: transparent;
+    transform: rotateX(-90deg);
+}

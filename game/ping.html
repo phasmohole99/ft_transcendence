@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong</title>
+    <link rel="stylesheet" href="assets/gamestyle.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center all content horizontally */
+            justify-content: center; /* Center all content vertically */
+            height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+            /* background-color: #000;  */
+            /* Optional: Set background color */
+            background: none;
+            color: #0f0; /* Set text color */
+        }
+
+        h1 {
+            text-align: center; /* Center the title */
+            margin-bottom: 10px; /* Space below the title */
+        }
+
+        .button-container {
+            margin-bottom: 10px; /* Space below the buttons */
+        }
+
+        .game-container {
+            position: relative;
+            width: 600px; /* Width of the game area */
+            height: 400px; /* Height of the game area */
+            border: 2px solid #0f0; /* Border for the game area */
+            overflow: hidden; /* Hide overflow */
+            background-color: #181818a8; /* Background color for the game area */
+        }
+
+        .paddle {
+            position: absolute;
+            width: 10px; /* Width of the paddle */
+            height: 80px; /* Height of the paddle */
+            background-color: #0f0; /* Paddle color */
+        }
+
+        .ball {
+            position: absolute;
+            width: 10px; /* Width of the ball */
+            height: 10px; /* Height of the ball */
+            background-color: #0f0; /* Ball color */
+            border-radius: 50%; /* Make the ball round */
+        }
+
+        .btn {
+            margin: 5px; /* Space around buttons */
+            padding: 10px 20px; /* Padding for buttons */
+            background: none;
+             /* Button background color */
+            color: #0f0; /* Button text color */
+            border: none; /* Remove border */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        /* Settings Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background: none;
+            padding-top: 60px; /* Location of the box */
+        }
+
+        .modal-content {
+            background-color: #181818a8;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #0f0;
+            width: 300px; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ping Pong</h1>
+    <div class="button-container">
+        <button id="reset" class="btn">
+            <span>Reset Game</span>
+            <span>Reset Game</span>
+        </button>
+        <button id="pause" class="btn">
+            <span>Pause</span>
+            <span>Pause</span>
+        </button>
+        <button id="mode" class="btn">
+            <span>Switch to Solo Mode</span>
+            <span>Switch to Solo Mode</span>
+        </button>
+        <button id="settings" class="btn">
+            <span>Settings</span>
+            <span>Settings</span>
+        </button>
+    </div>
+    <div class="game-container">
+        <div class="paddle" id="left-paddle" style="left: 0; top: 50%;"></div>
+        <div class="paddle" id="right-paddle" style="right: 0; top: 50%;"></div>
+        <div class="ball" id="ball" style="top: 50%; left: 50%;"></div>
+    </div>
+    <a href="TicTacToe.html" class="btn" style="margin-top: 20px;">
+        <span>Tic Tac Toe</span>
+        <span>Tic Tac Toe</span>
+    </a>
+    <a href="rps.html" class="btn">
+        <span>Rock Paper</span>
+        <span>Rock Paper</span>
+    </a>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <label for="ballSpeed">Ball Speed:</label>
+            <input type="number" id="ballSpeed" value="2" min="1" max="10"><br><br>
+            <label for="paddleSpeed">Paddle Speed:</label>
+            <input type="number" id="paddleSpeed" value="10" min="1" max="20"><br><br>
+            <button id="saveSettings" class="btn">
+                <span>Save</span>
+                <span>Save</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="pingpong.js"></script>
+</body>
+</html>
