@@ -84,9 +84,11 @@ class navigationHandler {
     initiate() {
         this.anchors.forEach(anchor => {
             anchor.addEventListener("click", this.eventHandler.bind(this));
-            window.addEventListener("popstate", _ => this.redirect(location.pathname));
-            document.addEventListener("DOMContentLoaded", _ => this.redirect(location.pathname));
         });
+        
+        // Move these event listeners outside the forEach loop
+        window.addEventListener("popstate", _ => this.redirect(location.pathname));
+        document.addEventListener("DOMContentLoaded", _ => this.redirect(location.pathname));
         
         // Initialize message buttons
         this.initMessageButtons();

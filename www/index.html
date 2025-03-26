@@ -373,7 +373,8 @@
                             <a href="/settings"><i class="fa-solid fa-gear"></i>settings</a>
                         </li>
                         <li data-section="logout">
-                            <a href="#" id="logout-link"><i class="fa-solid fa-right-from-bracket"></i>logout</a>
+                            <button class="btn" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i>logout</button>
+                            <script></script>
                         </li>
                         <hr class="nav-separator">
                         <li data-section="profile">
@@ -381,8 +382,8 @@
                                 <figure class="profile">
                                     <img src="./assets/imgs/dog-and-hitler.jpg" alt="profile picture" data-profile-img>
                                     <div class="profile-data">
-                                        <figcaption data-profile-username>username</figcaption>
-                                        <p data-profile-id>id: 521369</p>
+                                        <figcaption data-profile-username id="mini-profile-username">nor<span data-profile-id id="mini-profile-id">id: 0616</span></figcaption>
+                                        <p data-profile-id> </p>
                                     </div>
                                 </figure>
                             </a>
@@ -417,75 +418,26 @@
 
                     <!-- Statistics Cards Container -->
                     <div class="cards-container" id="activity-cards">
-                        <div class="card">
+                        <div class="card" id="games-card">
                             <i class="fa-solid fa-gamepad card-icon"></i>
                             <h3 class="card-title">Games Played</h3>
-                            <p class="card-value" data-games>42</p>
+                            <p class="card-value" id="games-card"   data-games>42</p>
                         </div>
                         <div class="card">
                             <i class="fa-solid fa-trophy card-icon"></i>
                             <h3 class="card-title">Wins</h3>
-                            <p class="card-value" data-wins>28</p>
+                            <p class="card-value" id="wins-card" data-wins>28</p>
                         </div>
                         <div class="card">
                             <i class="fa-solid fa-skull card-icon"></i>
                             <h3 class="card-title">losses</h3>
-                            <p class="card-value" data-losses>14</p>
+                            <p class="card-value"  id="losses-card" data-losses>20</p>
                         </div>
                     </div>
 
                     <!-- Activity List -->
                     <ul class="activity-list">
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p><strong>Player123</strong> won against <strong>Player456</strong> in <strong>Ping Pong</strong>.</p>
-                            <span class="activity-time">2 hours ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p><strong>Player789</strong> won against <strong>Player012</strong> in <strong>Tic Tac Toe</strong>.</p>
-                            <span class="activity-time">5 hours ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p><strong>Player345</strong> won against <strong>Player678</strong> in <strong>Rock Paper Scissors</strong>.</p>
-                            <span class="activity-time">1 day ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p><strong>Player901</strong> won against <strong>Player234</strong> in <strong>Ping Pong</strong>.</p>
-                            <span class="activity-time">1 day ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p><strong>Player123</strong> won against <strong>Player456</strong> in <strong>Ping Pong</strong>.</p>
-                            <span class="activity-time">1 day ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p><strong>Player789</strong> won against <strong>Player012</strong> in <strong>Tic Tac Toe</strong>.</p>
-                            <span class="activity-time">1 day ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p><strong>Player345</strong> won against <strong>Player678</strong> in <strong>Rock Paper Scissors</strong>.</p>
-                            <span class="activity-time">2 days ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p><strong>Player901</strong> won against <strong>Player234</strong> in <strong>Ping Pong</strong>.</p>
-                            <span class="activity-time">2 days ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p><strong>Player123</strong> won against <strong>Player456</strong> in <strong>Ping Pong</strong>.</p>
-                            <span class="activity-time">2 days ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p><strong>Player789</strong> won against <strong>Player012</strong> in <strong>Tic Tac Toe</strong>.</p>
-                            <span class="activity-time">2 days ago</span>
-                        </li>
+                        <!-- Activity items will be added by js -->
                     </ul>
                 </div>
             </section>
@@ -504,7 +456,7 @@
                     <figure class="profile">
                         <img src="./assets/imgs/dog-and-hitler.jpg" alt="profile picture" data-profile-img>
                         <div class="profile-data">
-                            <figcaption data-profile-username>username<span data-profile-id>id: 521369</span></figcaption>
+                            <figcaption data-profile-username id="main-profile-username">nor<span data-profile-id>id: 521369</span></figcaption>
                             <div class="profile-buttons">
                                 <button class="btn">follow</button>
                                 <button class="btn">get in touch</button>
@@ -530,57 +482,7 @@
                 <!-- Profile Activity List -->
                 <div class="dashboard-container">
                     <h2 class="container-title">Recent Activity</h2>
-                    <ul class="activity-list">
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p>won a game of <strong>Ping Pong</strong> against <strong>Player123</strong>.</p>
-                            <span class="activity-time">2 hours ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p>won a game of <strong>Tic Tac Toe</strong> against <strong>Player923</strong>.</p>
-                            <span class="activity-time">5 hours ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-skull"></i>
-                            <p>lost a game of <strong>Tic Tac Toe</strong> against <strong>Player053</strong>.</p>
-                            <span class="activity-time">1 day ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p>won a game of <strong>Ping Pong</strong> against <strong>Player123</strong>.</p>
-                            <span class="activity-time">1 day ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-skull"></i>
-                            <p>lost a game of <strong>Rock Paper Scissors</strong> against <strong>Player123</strong>.</p>
-                            <span class="activity-time">1 day ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p>won a game of <strong>Ping Pong</strong> against <strong>Player123</strong>.</p>
-                            <span class="activity-time">2 hours ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p>won a game of <strong>Tic Tac Toe</strong> against <strong>Player923</strong>.</p>
-                            <span class="activity-time">5 hours ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-skull"></i>
-                            <p>lost a game of <strong>Tic Tac Toe</strong> against <strong>Player053</strong>.</p>
-                            <span class="activity-time">1 day ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-trophy"></i>
-                            <p>won a game of <strong>Ping Pong</strong> against <strong>Player123</strong>.</p>
-                            <span class="activity-time">1 day ago</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-skull"></i>
-                            <p>lost a game of <strong>Rock Paper Scissors</strong> against <strong>Player123</strong>.</p>
-                            <span class="activity-time">1 day ago</span>
-                        </li>
+                    <ul class="activity-list" id="activity-list-profile">
                     </ul>
                 </div>
             </section>
@@ -776,7 +678,9 @@
             
                         <div class="chat-panel">
                             <div class="chat-header">
-                                <div class="contact-avatar"></div>
+                                <div class="contact-avatar">
+                                    <img src="./assets/imgs/dog-and-hitler.jpg" alt="Contact Avatar" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                                </div>
                                 <div class="contact-info">
                                     <div class="contact-name">Player1</div>
                                     <div class="contact-status">Online</div>
@@ -784,18 +688,7 @@
                             </div>
             
                             <div class="chat-messages">
-                                <div class="message received">
-                                    <div class="message-content">Hey! Want to play a game?</div>
-                                    <div class="message-time">10:30 AM</div>
-                                </div>
-                                <div class="message sent">
-                                    <div class="message-content">Sure! I'm up for a challenge 🏓</div>
-                                    <div class="message-time">10:31 AM</div>
-                                </div>
-                                <div class="message received">
-                                    <div class="message-content">Great! I'll create a room.</div>
-                                    <div class="message-time">10:31 AM</div>
-                                </div>
+                                <!-- Messages will be added by JavaScript -->
                             </div>
             
                             <div class="chat-input">
@@ -874,7 +767,7 @@
                         <div class="friend-card playing">
                             <div class="friend-status-indicator"></div>
                             <div class="friend-avatar">
-                                <img src="./assets/imgs/avatar1.jpg" alt="Player1">
+                                <!-- <img src="./assets/imgs/avatar1.jpg" alt="Player1"> -->
                             </div>
                             <div class="friend-info">
                                 <h3>Player1</h3>
@@ -904,7 +797,7 @@
                         <div class="friend-card online">
                             <div class="friend-status-indicator"></div>
                             <div class="friend-avatar">
-                                <img src="./assets/imgs/avatar2.jpg" alt="Player2">
+                                <!-- <img src="./assets/imgs/avatar2.jpg" alt="Player2"> -->
                             </div>
                             <div class="friend-info">
                                 <h3>Player2</h3>
@@ -934,7 +827,7 @@
                         <div class="friend-card offline">
                             <div class="friend-status-indicator"></div>
                             <div class="friend-avatar grayscale">
-                                <img src="./assets/imgs/avatar3.jpg" alt="Player3">
+                                <!-- <img src="./assets/imgs/avatar3.jpg" alt="Player3"> -->
                             </div>
                             <div class="friend-info">
                                 <h3>Player3</h3>
@@ -981,7 +874,7 @@
                     <div class="requests-grid">
                         <div class="request-card">
                             <div class="friend-avatar">
-                                <img src="./assets/imgs/avatar7.jpg" alt="Player7">
+                                <!-- <img src="./assets/imgs/avatar7.jpg" alt="Player7"> -->
                             </div>
                             <div class="request-info">
                                 <h3>Player7</h3>
@@ -1242,5 +1135,6 @@
             });
         });
     </script>
+    <script src="me.js"></script>
 </body>
 </html>
